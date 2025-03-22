@@ -1,0 +1,14 @@
+@use "abstracts/theme";
+@use "abstracts/mixins";
+
+div {
+  background-color: theme.$info-color;
+  @include mixins.flex-center;
+
+  p {
+    color: theme.$text-light;
+    font-size: theme.$font-size-xs;
+    font-weight: 600;
+    margin: 8px;
+  }
+}

@@ -1,0 +1,14 @@
+@use "abstracts/theme";
+@use "abstracts/mixins";
+
+button {
+  all: unset;
+  cursor: pointer;
+  @include mixins.flex-center;
+  color: theme.$text-light;
+  svg {
+    &:hover {
+      color: darken(theme.$text-light, 10%);
+    }
+  }
+}

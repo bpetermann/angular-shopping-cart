@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@use "base/base";
+
+body {
+  margin: 0;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
