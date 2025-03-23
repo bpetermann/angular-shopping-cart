@@ -1,0 +1,16 @@
+@use "abstracts/mixins";
+@use "abstracts/theme";
+
+div {
+  @include mixins.flex-center;
+  gap: theme.$gap-size-md;
+
+  h1 {
+    font-size: theme.$font-size-lg;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}

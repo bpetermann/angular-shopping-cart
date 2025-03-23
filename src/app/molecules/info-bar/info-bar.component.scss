@@ -8,7 +8,7 @@ div {
   p {
     color: theme.$text-light;
     font-size: theme.$font-size-xs;
+    margin: theme.$gap-size-md;
     font-weight: 600;
-    margin: 8px;
   }
 }

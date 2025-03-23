@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { InfoBarComponent } from './molecules/info-bar/info-bar.component';
+import { HeaderComponent } from './organisms/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, InfoBarComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
