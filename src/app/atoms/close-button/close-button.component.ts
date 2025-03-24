@@ -1,15 +1,9 @@
-import { Component, output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-close-button',
+  selector: 'button[appCloseButton]',
   imports: [],
   templateUrl: './close-button.component.html',
   styleUrl: './close-button.component.scss',
 })
-export class CloseButtonComponent {
-  close = output<void>();
-
-  onClose() {
-    this.close.emit();
-  }
-}
+export class CloseButtonComponent {}

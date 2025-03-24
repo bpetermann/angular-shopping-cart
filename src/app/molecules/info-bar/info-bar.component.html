@@ -1,6 +1,6 @@
 @if(isOpen()){
 <div>
   <p>FREE SHIPPING AND RETURNS</p>
-  <app-close-button (close)="onClose()" />
+  <button (click)="onClose()" aria-label="Close" appCloseButton></button>
 </div>
 }
