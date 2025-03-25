@@ -1,0 +1,8 @@
+@use "abstracts/theme";
+@use "abstracts/mixins";
+
+.icon-button {
+  all: unset;
+  cursor: pointer;
+  @include mixins.flex-center;
+}

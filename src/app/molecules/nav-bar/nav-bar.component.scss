@@ -4,4 +4,10 @@
 :host {
   @include mixins.flex-center;
   padding: theme.$gap-size-md;
+
+  div {
+    @include mixins.flex-between;
+    width: 100%;
+    max-width: theme.$screen-xl-min;
+  }
 }

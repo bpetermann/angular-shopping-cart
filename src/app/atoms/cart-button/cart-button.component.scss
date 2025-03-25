@@ -1,0 +1,27 @@
+@use "components/buttons" as *;
+@use "abstracts/theme";
+@use "abstracts/mixins";
+@use "sass:color";
+
+:host {
+  @extend .icon-button;
+  color: theme.$text-dark;
+
+  &:hover {
+    color: color.adjust(theme.$text-dark, $lightness: 20%);
+  }
+
+  span {
+    @include mixins.flex-center;
+    background-color: theme.$highlight-color;
+    font-size: theme.$font-size-xs;
+    left: -#{theme.$gap-size-md};
+    top: -#{theme.$gap-size-md};
+    height: theme.$font-size-md;
+    width: theme.$font-size-md;
+    color: theme.$text-light;
+    position: relative;
+    font-weight: 600;
+    border-radius: 50%;
+  }
+}

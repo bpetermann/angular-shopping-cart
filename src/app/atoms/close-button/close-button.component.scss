@@ -1,12 +1,12 @@
+@use "components/buttons" as *;
 @use "abstracts/theme";
-@use "abstracts/mixins";
 @use "sass:color";
 
 :host {
-  all: unset;
-  cursor: pointer;
-  @include mixins.flex-center;
+  @extend .icon-button;
+
   color: theme.$text-light;
+
   &:hover {
     color: color.adjust(theme.$text-light, $lightness: -10%);
   }
