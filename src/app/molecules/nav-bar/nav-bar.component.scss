@@ -1,7 +1,7 @@
 @use "abstracts/mixins";
 @use "abstracts/theme";
 
-div {
+:host {
   @include mixins.flex-center;
   padding: theme.$gap-size-md;
 }

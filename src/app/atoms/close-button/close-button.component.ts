@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './close-button.component.html',
   styleUrl: './close-button.component.scss',
+  host: { 'aria-label': 'Close' },
 })
 export class CloseButtonComponent {}
