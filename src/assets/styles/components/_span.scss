@@ -1,0 +1,15 @@
+@use "abstracts/theme";
+@use "abstracts/mixins";
+
+.count-span {
+  @include mixins.flex-center;
+  background-color: theme.$highlight-color;
+  font-size: theme.$font-size-xs;
+  height: theme.$font-size-md;
+  width: theme.$font-size-md;
+  color: theme.$text-light;
+  position: absolute;
+  font-weight: 600;
+  border-radius: 50%;
+  padding-top: 2px;
+}

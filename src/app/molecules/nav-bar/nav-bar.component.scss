@@ -1,13 +1,58 @@
-@use "abstracts/mixins";
+@use "abstracts/mixins" as *;
 @use "abstracts/theme";
 
 :host {
-  @include mixins.flex-center;
+  @include flex-center;
   padding: theme.$gap-size-md;
 
-  div {
-    @include mixins.flex-between;
+  .container {
+    @include flex-between;
     width: 100%;
     max-width: theme.$screen-xl-min;
+  }
+
+  nav {
+    display: none;
+
+    @include md {
+      display: block;
+      min-width: 225px;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      button {
+        all: unset;
+        padding: 6px;
+        padding-left: theme.$gap-size-md;
+        padding-right: theme.$gap-size-md;
+        text-transform: capitalize;
+        cursor: pointer;
+        min-width: 64px;
+        text-align: center;
+        color: theme.$text-dark;
+      }
+
+      .active {
+        color: theme.$text-light;
+        background-color: theme.$text-dark;
+      }
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: flex-end;
+    gap: theme.$gap-size-xl;
+    padding-right: theme.$gap-size-md;
+    padding-left: theme.$gap-size-md;
+
+    @include md {
+      min-width: 225px;
+    }
   }
 }

@@ -1,5 +1,21 @@
-<div>
-  <nav></nav>
+<div class="container">
+  <nav>
+    <ul>
+      @for (category of categories; track category.id) {
+      <li>
+        <button
+          (click)="onSelectCategory(category.id)"
+          [class.active]="activeCategory().id === category.id"
+        >
+          {{ category.name }}
+        </button>
+      </li>
+      }
+    </ul>
+  </nav>
   <app-logo />
-  <button appCartButton></button>
+  <div>
+    <button appLikeButton></button>
+    <button appCartButton></button>
+  </div>
 </div>
