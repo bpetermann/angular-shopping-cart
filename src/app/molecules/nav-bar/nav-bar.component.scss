@@ -1,5 +1,6 @@
 @use "abstracts/mixins" as *;
 @use "abstracts/theme";
+@use "sass:color";
 
 :host {
   @include flex-center;
@@ -32,9 +33,14 @@
         padding-right: theme.$gap-size-md;
         text-transform: capitalize;
         cursor: pointer;
+        font-weight: 500;
         min-width: 64px;
         text-align: center;
         color: theme.$text-dark;
+
+        &:hover {
+          background-color: color.adjust(theme.$text-dark, $lightness: 90%);
+        }
       }
 
       .active {
@@ -47,6 +53,7 @@
   div {
     display: flex;
     justify-content: flex-end;
+    align-self: stretch;
     gap: theme.$gap-size-xl;
     padding-right: theme.$gap-size-md;
     padding-left: theme.$gap-size-md;
