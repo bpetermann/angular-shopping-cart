@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    @for (product of products(); track product.id) {
+    <li><app-product [product]="product" /></li>
+    }
+  </ul>
+</div>

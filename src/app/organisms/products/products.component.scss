@@ -1,0 +1,28 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+@use "sass:color";
+
+:host {
+  @include flex-center;
+  background-color: theme.$secondary-color;
+
+  div {
+    @include flex-center;
+    width: 100%;
+    max-width: theme.$screen-xl-min;
+  }
+
+  ul {
+    all: unset;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 100%;
+    padding: 24px 0px;
+  }
+
+  li {
+    list-style: none;
+  }
+}
