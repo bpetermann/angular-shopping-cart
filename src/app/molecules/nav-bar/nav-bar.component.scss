@@ -46,6 +46,7 @@
       .active {
         color: theme.$text-light;
         background-color: theme.$text-dark;
+        pointer-events: none;
       }
     }
   }
