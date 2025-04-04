@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
