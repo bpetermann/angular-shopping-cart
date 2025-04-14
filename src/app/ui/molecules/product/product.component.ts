@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+import { Product } from '../../../core/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -8,10 +9,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
-  product = input.required<{
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-  }>();
+  product = input.required<Product>();
 }
