@@ -12,6 +12,6 @@
   />
 </svg>
 
-@if(count()){
-<span>{{ count() }}</span>
+@if(cartService.amount()){
+<span>{{ cartService.amount() }}</span>
 }

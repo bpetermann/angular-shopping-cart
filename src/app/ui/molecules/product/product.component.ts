@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { Product } from '../../../core/models/product.model';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -9,5 +10,11 @@ import { Product } from '../../../core/models/product.model';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
+  constructor(private cartService: CartService) {}
+
   product = input.required<Product>();
+
+  onAdd() {
+    this.cartService.addCartItem(this.product());
+  }
 }

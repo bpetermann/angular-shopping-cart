@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'button[appCartButton]',
@@ -8,5 +9,5 @@ import { Component, input } from '@angular/core';
   host: { 'aria-label': 'Cart' },
 })
 export class CartButtonComponent {
-  count = input<number>(2);
+  constructor(readonly cartService: CartService) {}
 }
