@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 import { CartButtonComponent } from '../../atoms/cart-button/cart-button.component';
 import { LikeButtonComponent } from '../../atoms/like-button/like-button.component';
@@ -11,6 +11,8 @@ import { LogoComponent } from '../../atoms/logo/logo.component';
   styleUrl: './nav-bar.component.scss',
 })
 export class NavBarComponent {
+  cartService = inject(CartService);
+
   categories: { id: number; name: string }[] = [
     {
       id: 1,
@@ -24,13 +26,11 @@ export class NavBarComponent {
 
   activeCategory = signal<{ id: number; name: string }>(this.categories[0]);
 
-  constructor(readonly cartService: CartService) {}
-
   onSelectCategory(itemId: number) {
     this.activeCategory.set(this.categories.find(({ id }) => id === itemId)!);
   }
 
-  showCart() {
-    console.log(this.cartService.cart());
+  onShowCart() {
+    this.cartService.onOpen();
   }
 }

@@ -1,0 +1,39 @@
+<app-modal (close)="onCloseCart()">
+  <div class="container">
+    @if (cartService.cart().length) {
+    <button
+      (click)="onCloseCart()"
+      appCloseButton
+      [fillColor]="'#000'"
+    ></button>
+    <h3>
+      Cart (<span>{{ cartService.amount() }}</span
+      >)
+    </h3>
+    <ul>
+      @for (product of cartService.cart(); track product.id) {
+      <li>
+        <div>
+          <p>{{ product.name }}</p>
+          <div>
+            <span>{{ product.price | currency }}</span>
+            <span>{{ product.amount }}X</span>
+          </div>
+        </div>
+        <div>
+          <button (click)="onAdd(product)">+</button>
+          <button (click)="onDelete(product.id)">-</button>
+        </div>
+      </li>
+      }
+    </ul>
+    <div>
+      <span>Total Amount</span>
+      <span>{{ cartService.total() | currency }}</span>
+    </div>
+    <button>Order</button>
+    } @else {
+    <button (click)="onCloseCart()">No items (yet)!</button>
+    }
+  </div>
+</app-modal>

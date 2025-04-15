@@ -13,6 +13,10 @@ export class CartService {
     this.cart().reduce((prev, { amount }) => prev + amount, 0)
   );
 
+  total = computed(() =>
+    this.cart().reduce((prev, { price, amount }) => prev + price * amount, 0)
+  );
+
   onClose() {
     this.isOpen.set(false);
   }

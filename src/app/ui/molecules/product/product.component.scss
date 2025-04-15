@@ -44,6 +44,7 @@
   .add-button {
     @include flex-center;
     background-color: transparent;
+    cursor: pointer;
     font-size: theme.$font-size-md;
     padding: theme.$gap-size-xl;
     border: 1px solid #000;

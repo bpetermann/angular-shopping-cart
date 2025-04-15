@@ -1,2 +1,6 @@
-<app-hero />
-<app-products />
+@if (cartService.isOpen()) {<app-cart />}
+
+<main>
+  <app-hero />
+  <app-products />
+</main>

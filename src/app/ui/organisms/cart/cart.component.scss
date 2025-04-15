@@ -1,0 +1,92 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+
+.container {
+  @include flex-column;
+  justify-content: center;
+  padding: theme.$gap-size-xl;
+  gap: theme.$gap-size-xl;
+
+  button:first-of-type {
+    align-self: flex-end;
+  }
+
+  ul {
+    width: 100%;
+    max-width: 300px;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    width: 100%;
+    padding-bottom: theme.$gap-size-xl;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d0d1d3;
+
+    > div:first-of-type {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      justify-content: flex-start;
+      gap: theme.$gap-size-md;
+
+      p {
+        text-align: left;
+        padding-top: theme.$gap-size-lg;
+        padding-bottom: theme.$gap-size-lg;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    > div:last-of-type {
+      @include flex-center;
+      gap: theme.$gap-size-xl;
+
+      button {
+        width: 32px;
+        height: 32px;
+        background-color: theme.$text-light;
+        outline: none;
+        border: 1px solid #000;
+        font-size: theme.$gap-size-xl;
+      }
+    }
+  }
+
+  > div:last-of-type {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  > button:last-of-type {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 220px;
+    background-color: theme.$highlight-color;
+    color: theme.$text-light;
+    font-size: theme.$gap-size-xl;
+    padding: 12px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  > button:last-of-type:only-child {
+    margin-top: unset;
+    align-self: center;
+    max-width: unset;
+  }
+}
