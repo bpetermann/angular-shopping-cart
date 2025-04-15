@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'button[appCloseButton]',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './close-button.component.scss',
   host: { 'aria-label': 'Close' },
 })
-export class CloseButtonComponent {}
+export class CloseButtonComponent {
+  fillColor = input('currentColor');
+}
