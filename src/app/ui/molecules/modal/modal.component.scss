@@ -1,0 +1,28 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  text-align: center;
+  top: 15%;
+  background-color: theme.$text-light;
+  overflow-y: scroll;
+  z-index: 10;
+  left: 5%;
+  width: 90%;
+
+  @include md {
+    left: 30%;
+    width: 40%;
+  }
+}
