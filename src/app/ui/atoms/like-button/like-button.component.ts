@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, computed } from '@angular/core';
+import { FavoriteService } from '../../../core/services/favorite.service';
 
 @Component({
   selector: 'button[appLikeButton]',
@@ -7,5 +8,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './like-button.component.scss',
 })
 export class LikeButtonComponent {
-  count = input<number>(3);
+  constructor(readonly favoriteService: FavoriteService) {}
+
+  amount = computed(() => this.favoriteService.favorites().length);
 }

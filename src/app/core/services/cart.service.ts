@@ -17,11 +17,11 @@ export class CartService {
     this.cart().reduce((prev, { price, amount }) => prev + price * amount, 0)
   );
 
-  onClose() {
+  close() {
     this.isOpen.set(false);
   }
 
-  onOpen() {
+  open() {
     this.isOpen.set(true);
   }
 

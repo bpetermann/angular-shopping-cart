@@ -15,7 +15,7 @@ export class CartComponent {
   cartService = inject(CartService);
 
   onCloseCart() {
-    this.cartService.onClose();
+    this.cartService.close();
   }
 
   onAdd(product: Product) {

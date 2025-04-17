@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
+import { FavoriteService } from '../../../core/services/favorite.service';
 import { CartButtonComponent } from '../../atoms/cart-button/cart-button.component';
 import { LikeButtonComponent } from '../../atoms/like-button/like-button.component';
 import { LogoComponent } from '../../atoms/logo/logo.component';
@@ -12,6 +13,7 @@ import { LogoComponent } from '../../atoms/logo/logo.component';
 })
 export class NavBarComponent {
   cartService = inject(CartService);
+  favoritesService = inject(FavoriteService);
 
   categories: { id: number; name: string }[] = [
     {
@@ -30,7 +32,11 @@ export class NavBarComponent {
     this.activeCategory.set(this.categories.find(({ id }) => id === itemId)!);
   }
 
-  onShowCart() {
-    this.cartService.onOpen();
+  onOpenCart() {
+    this.cartService.open();
+  }
+
+  onOpenFavorites() {
+    this.favoritesService.open();
   }
 }

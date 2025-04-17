@@ -1,0 +1,11 @@
+<app-modal (close)="onClose()" class="foo">
+  <div class="container">
+    <button (click)="onClose()" appCloseButton [fillColor]="'#000'"></button>
+    <h3>Favorites</h3>
+    <ul>
+      @for (product of favoriteService.favorites(); track product.id) {
+      <li><app-product [product]="product" /></li>
+      }
+    </ul>
+  </div>
+</app-modal>

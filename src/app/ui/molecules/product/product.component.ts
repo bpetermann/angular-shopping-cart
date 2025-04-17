@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { Product } from '../../../core/models/product.model';
 import { CartService } from '../../../core/services/cart.service';
+import { FavoriteService } from '../../../core/services/favorite.service';
 
 @Component({
   selector: 'app-product',
@@ -10,11 +11,24 @@ import { CartService } from '../../../core/services/cart.service';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
-  constructor(private cartService: CartService) {}
+  private cartService = inject(CartService);
+  private favoriteService = inject(FavoriteService);
+
+  isFavorite = computed(
+    () =>
+      !!this.favoriteService
+        .favorites()
+        .find(({ id }) => id === this.product().id)
+  );
 
   product = input.required<Product>();
 
   onAdd() {
     this.cartService.addCartItem(this.product());
+    if (this.isFavorite()) this.favoriteService.toggleFavorite(this.product());
+  }
+
+  onToggleLike() {
+    this.favoriteService.toggleFavorite(this.product());
   }
 }

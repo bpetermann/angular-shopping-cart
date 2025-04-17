@@ -41,6 +41,10 @@
     }
   }
 
+  .active {
+    color: theme.$highlight-color;
+  }
+
   .add-button {
     @include flex-center;
     background-color: transparent;
