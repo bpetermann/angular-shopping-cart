@@ -1,6 +1,8 @@
 import { computed, Injectable, signal } from '@angular/core';
+import { STORAGE_KEYS } from '../constants/storage-keys.constants';
 import { CartItem } from '../models/cart-item.model';
 import { Product } from '../models/product.model';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +15,12 @@ export class CartService {
     this.cart().reduce((prev, { amount }) => prev + amount, 0)
   );
 
-  total = computed(() =>
-    this.cart().reduce((prev, { price, amount }) => prev + price * amount, 0)
-  );
+  constructor(private storageService: StorageService) {}
+
+  init() {
+    const cart = this.storageService.getItem(STORAGE_KEYS.CART);
+    if (cart) this.cart.set(JSON.parse(cart));
+  }
 
   close() {
     this.isOpen.set(false);
@@ -39,6 +44,8 @@ export class CartService {
     } else {
       this.cart.update((prev) => [...prev, { ...item, amount: 1 }]);
     }
+
+    this.setCartStorage();
   }
 
   deleteCartItem(productId: string) {
@@ -52,5 +59,11 @@ export class CartService {
     } else {
       this.cart.update((prev) => prev.filter(({ id }) => id !== productId));
     }
+
+    this.setCartStorage();
+  }
+
+  private setCartStorage() {
+    this.storageService.setItem(STORAGE_KEYS.CART, JSON.stringify(this.cart()));
   }
 }

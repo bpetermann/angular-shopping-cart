@@ -19,4 +19,8 @@ import { ProductsComponent } from '../../organisms/products/products.component';
 export class HomeComponent {
   readonly cartService = inject(CartService);
   readonly favoritesService = inject(FavoriteService);
+
+  ngOnInit() {
+    this.cartService.init();
+  }
 }

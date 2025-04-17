@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Product } from '../../../core/models/product.model';
 import { CartService } from '../../../core/services/cart.service';
 import { CloseButtonComponent } from '../../atoms/close-button/close-button.component';
@@ -13,6 +13,12 @@ import { ModalComponent } from '../../molecules/modal/modal.component';
 })
 export class CartComponent {
   cartService = inject(CartService);
+
+  total = computed(() =>
+    this.cartService
+      .cart()
+      .reduce((prev, { price, amount }) => prev + price * amount, 0)
+  );
 
   onCloseCart() {
     this.cartService.close();
