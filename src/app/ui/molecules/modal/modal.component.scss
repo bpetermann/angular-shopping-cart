@@ -1,5 +1,6 @@
 @use "abstracts/mixins" as *;
 @use "abstracts/theme";
+@import "animations/fade";
 
 .backdrop {
   position: fixed;
@@ -8,12 +9,14 @@
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
+  @extend .fade-in;
   z-index: 10;
 }
 
 .modal {
   position: fixed;
   text-align: center;
+  @extend .fade-in;
   top: 15%;
   background-color: theme.$text-light;
   overflow-y: scroll;
