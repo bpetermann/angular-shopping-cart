@@ -1,0 +1,82 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+@use "sass:color";
+
+.container {
+  display: flex;
+  align-items: center;
+
+  @include md {
+    display: none;
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    border: none;
+    text-align: start;
+    font-size: 16px;
+    padding-left: 16px;
+  }
+
+  button {
+    all: unset;
+    width: 48px;
+    height: 40px;
+    border-right: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: theme.$border;
+    color: theme.$border;
+  }
+}
+
+nav {
+  opacity: 0;
+  transform: translateY(0px);
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  background-color: theme.$primary-color;
+
+  li {
+    button {
+      all: unset;
+      padding: 6px;
+      background-color: theme.$text-light;
+      padding-left: theme.$gap-size-md;
+      padding-right: theme.$gap-size-md;
+      text-transform: capitalize;
+      border-right: 1px solid;
+      border-top: 1px solid;
+      border-color: theme.$border;
+      color: theme.$border;
+      cursor: pointer;
+      font-weight: 500;
+      min-width: 64px;
+      text-align: center;
+      color: theme.$text-dark;
+
+      &:hover {
+        background-color: color.adjust(theme.$text-dark, $lightness: 90%);
+      }
+    }
+
+    .active {
+      color: theme.$text-light;
+      background-color: theme.$text-dark;
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
