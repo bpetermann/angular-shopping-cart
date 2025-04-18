@@ -1,5 +1,6 @@
 @use "abstracts/mixins" as *;
 @use "abstracts/theme";
+@use "animations/pop";
 @use "sass:color";
 
 :host {
@@ -37,12 +38,20 @@
 
       &:hover {
         color: theme.$highlight-color;
+
+        path:first-of-type {
+          @extend .heart-pop;
+        }
       }
     }
   }
 
   .active {
     color: theme.$highlight-color;
+  }
+
+  .heart-fill {
+    @extend .heart-pop;
   }
 
   .add-button {

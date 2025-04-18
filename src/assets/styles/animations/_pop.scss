@@ -1,0 +1,18 @@
+@use "abstracts/theme";
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(0);
+    fill: transparent;
+  }
+
+  100% {
+    transform: scale(1);
+    fill: theme.$highlight-color;
+  }
+}
+
+.heart-pop {
+  transform-origin: center;
+  animation: heart-pop 0.3s ease forwards;
+}
