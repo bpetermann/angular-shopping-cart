@@ -1,6 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Category } from '../../../core/models/category.model';
 import { CartService } from '../../../core/services/cart.service';
 import { FavoriteService } from '../../../core/services/favorite.service';
+import { FilterService } from '../../../core/services/filter.service';
 import { CartButtonComponent } from '../../atoms/cart-button/cart-button.component';
 import { LikeButtonComponent } from '../../atoms/like-button/like-button.component';
 import { LogoComponent } from '../../atoms/logo/logo.component';
@@ -13,23 +15,15 @@ import { LogoComponent } from '../../atoms/logo/logo.component';
 })
 export class NavBarComponent {
   cartService = inject(CartService);
+  filterService = inject(FilterService);
   favoritesService = inject(FavoriteService);
 
-  categories: { id: number; name: string }[] = [
-    {
-      id: 1,
-      name: 'shoes',
-    },
-    {
-      id: 2,
-      name: 'bags',
-    },
-  ];
+  categories: Category[] = ['shoes', 'bags'];
 
-  activeCategory = signal<{ id: number; name: string }>(this.categories[0]);
+  activeCategory = this.filterService.category;
 
-  onSelectCategory(itemId: number) {
-    this.activeCategory.set(this.categories.find(({ id }) => id === itemId)!);
+  onSelectCategory(category: Category) {
+    this.filterService.selectCategory(category);
   }
 
   onOpenCart() {

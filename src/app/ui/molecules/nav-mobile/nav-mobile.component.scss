@@ -1,6 +1,7 @@
 @use "abstracts/mixins" as *;
 @use "abstracts/theme";
 @use "sass:color";
+@import "animations/fade";
 
 .container {
   display: flex;
@@ -33,9 +34,13 @@
 }
 
 nav {
-  opacity: 0;
-  transform: translateY(0px);
-  animation: slideDown 0.3s ease-out forwards;
+  display: block;
+  transform: translateX(-50px);
+  animation: slideIn 0.3s ease-out forwards;
+
+  @include md {
+    display: none;
+  }
 }
 
 ul {
@@ -74,9 +79,8 @@ ul {
   }
 }
 
-@keyframes slideDown {
+@keyframes slideIn {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }

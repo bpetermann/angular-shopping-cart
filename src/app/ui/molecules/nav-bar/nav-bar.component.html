@@ -1,13 +1,13 @@
 <div class="container">
   <nav>
     <ul>
-      @for (category of categories; track category.id) {
+      @for (category of categories; track category) {
       <li>
         <button
-          (click)="onSelectCategory(category.id)"
-          [class.active]="activeCategory().id === category.id"
+          (click)="onSelectCategory(category)"
+          [class.active]="activeCategory() === category"
         >
-          {{ category.name }}
+          {{ category }}
         </button>
       </li>
       }

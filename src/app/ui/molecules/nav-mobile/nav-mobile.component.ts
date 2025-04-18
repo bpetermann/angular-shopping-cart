@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Category } from '../../../core/models/category.model';
+import { FilterService } from '../../../core/services/filter.service';
 
 @Component({
   selector: 'app-nav-mobile',
@@ -8,22 +10,14 @@ import { Component, signal } from '@angular/core';
 })
 export class NavMobileComponent {
   isMenuOpen = signal(false);
+  filterService = inject(FilterService);
 
-  categories: { id: number; name: string }[] = [
-    {
-      id: 1,
-      name: 'shoes',
-    },
-    {
-      id: 2,
-      name: 'bags',
-    },
-  ];
+  categories: Category[] = ['shoes', 'bags'];
 
-  activeCategory = signal<{ id: number; name: string }>(this.categories[0]);
+  activeCategory = this.filterService.category;
 
-  onSelectCategory(itemId: number) {
-    this.activeCategory.set(this.categories.find(({ id }) => id === itemId)!);
+  onSelectCategory(category: Category) {
+    this.filterService.selectCategory(category);
   }
 
   toggleMenu() {
