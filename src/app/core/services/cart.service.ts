@@ -1,21 +1,17 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { STORAGE_KEYS } from '../constants/storage-keys.constants';
 import { CartItem } from '../models/cart-item.model';
 import { Product } from '../models/product.model';
-import { StorageService } from './storage.service';
+import { Storage, StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartService {
-  cart = signal<CartItem[]>([]);
+export class CartService implements Storage {
+  private cart = signal<CartItem[]>([]);
   isOpen = signal<boolean>(false);
-
-  amount = computed(() =>
-    this.cart().reduce((prev, { amount }) => prev + amount, 0)
-  );
-
-  constructor(private storageService: StorageService) {}
+  private storageService = inject(StorageService);
+  cartItems = this.cart.asReadonly();
 
   init() {
     const cart = this.storageService.getItem(STORAGE_KEYS.CART);
@@ -50,6 +46,7 @@ export class CartService {
 
   deleteCartItem(productId: string) {
     const { amount, id } = this.cart().find(({ id }) => id === productId)!;
+
     if (amount > 1) {
       this.cart.update((prev) =>
         prev.map((item) =>

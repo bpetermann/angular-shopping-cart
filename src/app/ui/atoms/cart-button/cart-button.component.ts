@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 
 @Component({
@@ -9,5 +9,9 @@ import { CartService } from '../../../core/services/cart.service';
   host: { 'aria-label': 'Cart' },
 })
 export class CartButtonComponent {
-  constructor(readonly cartService: CartService) {}
+  readonly cartService = inject(CartService);
+
+  amount = computed(() =>
+    this.cartService.cartItems().reduce((prev, { amount }) => prev + amount, 0)
+  );
 }

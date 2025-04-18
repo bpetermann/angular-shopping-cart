@@ -22,5 +22,6 @@ export class HomeComponent {
 
   ngOnInit() {
     this.cartService.init();
+    this.favoritesService.init();
   }
 }

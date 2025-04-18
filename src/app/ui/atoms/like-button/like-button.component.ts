@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { FavoriteService } from '../../../core/services/favorite.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { FavoriteService } from '../../../core/services/favorite.service';
   styleUrl: './like-button.component.scss',
 })
 export class LikeButtonComponent {
-  constructor(readonly favoriteService: FavoriteService) {}
+  favoriteService = inject(FavoriteService);
+  favorites = this.favoriteService.favoritItems;
 
-  amount = computed(() => this.favoriteService.favorites().length);
+  amount = computed(() => this.favorites().length);
 }

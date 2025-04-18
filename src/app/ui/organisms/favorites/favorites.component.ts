@@ -13,6 +13,8 @@ import { ProductComponent } from '../../molecules/product/product.component';
 export class FavoritesComponent {
   favoriteService = inject(FavoriteService);
 
+  favorites = this.favoriteService.favoritItems;
+
   onClose() {
     this.favoriteService.close();
   }

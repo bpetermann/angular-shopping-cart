@@ -1,17 +1,17 @@
 <app-modal (close)="onCloseCart()">
   <div class="container">
-    @if (cartService.cart().length) {
+    @if (cart().length) {
     <button
       (click)="onCloseCart()"
       appCloseButton
       [fillColor]="'#000'"
     ></button>
     <h3>
-      Cart (<span>{{ cartService.amount() }}</span
+      Cart (<span>{{ amount() }}</span
       >)
     </h3>
     <ul>
-      @for (product of cartService.cart(); track product.id) {
+      @for (product of cart(); track product.id) {
       <li>
         <div>
           <p>{{ product.name }}</p>

@@ -13,11 +13,14 @@ import { ModalComponent } from '../../molecules/modal/modal.component';
 })
 export class CartComponent {
   cartService = inject(CartService);
+  cart = this.cartService.cartItems;
 
   total = computed(() =>
-    this.cartService
-      .cart()
-      .reduce((prev, { price, amount }) => prev + price * amount, 0)
+    this.cart().reduce((prev, { price, amount }) => prev + price * amount, 0)
+  );
+
+  amount = computed(() =>
+    this.cart().reduce((prev, { amount }) => prev + amount, 0)
   );
 
   onCloseCart() {

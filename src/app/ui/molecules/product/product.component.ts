@@ -14,11 +14,10 @@ export class ProductComponent {
   private cartService = inject(CartService);
   private favoriteService = inject(FavoriteService);
 
+  favorites = this.favoriteService.favoritItems;
+
   isFavorite = computed(
-    () =>
-      !!this.favoriteService
-        .favorites()
-        .find(({ id }) => id === this.product().id)
+    () => !!this.favorites().find(({ id }) => id === this.product().id)
   );
 
   product = input.required<Product>();
