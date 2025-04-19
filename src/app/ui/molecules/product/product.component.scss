@@ -63,4 +63,9 @@
     border: 1px solid #000;
     outline: none;
   }
+
+  .highlight {
+    background-color: theme.$highlight-color;
+    color: theme.$text-light;
+  }
 }

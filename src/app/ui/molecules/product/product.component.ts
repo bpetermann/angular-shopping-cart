@@ -3,6 +3,7 @@ import { Component, computed, inject, input } from '@angular/core';
 import { Product } from '../../../core/models/product.model';
 import { CartService } from '../../../core/services/cart.service';
 import { FavoriteService } from '../../../core/services/favorite.service';
+import { FilterService } from '../../../core/services/filter.service';
 
 @Component({
   selector: 'app-product',
@@ -12,15 +13,16 @@ import { FavoriteService } from '../../../core/services/favorite.service';
 })
 export class ProductComponent {
   private cartService = inject(CartService);
+  private filterService = inject(FilterService);
   private favoriteService = inject(FavoriteService);
 
   favorites = this.favoriteService.favoritItems;
+  searchValue = this.filterService.searchTerm;
+  product = input.required<Product>();
 
   isFavorite = computed(
     () => !!this.favorites().find(({ id }) => id === this.product().id)
   );
-
-  product = input.required<Product>();
 
   onAdd() {
     this.cartService.addCartItem(this.product());
@@ -29,5 +31,15 @@ export class ProductComponent {
 
   onToggleLike() {
     this.favoriteService.toggleFavorite(this.product());
+  }
+
+  highlightText(word: string) {
+    const searchTerm = this.searchValue().trim().toLowerCase();
+
+    if (!searchTerm) return false;
+
+    return searchTerm
+      .split(' ')
+      .some((search) => word.toLowerCase().includes(search));
   }
 }

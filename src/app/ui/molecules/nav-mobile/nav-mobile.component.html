@@ -12,11 +12,15 @@
       />
     </svg>
   </button>
-  <input />
+  <input
+    type="text"
+    placeholder="Search"
+    [ngModel]="searchValue()"
+    (ngModelChange)="setSearchText($event)"
+  />
 </div>
-@if (isMenuOpen()) {
 <nav>
-  <ul>
+  <ul [class.active]="isMenuOpen()">
     @for (category of categories; track category) {
     <li>
       <button
@@ -29,5 +33,3 @@
     }
   </ul>
 </nav>
-
-}
