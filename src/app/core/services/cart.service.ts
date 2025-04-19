@@ -2,18 +2,18 @@ import { inject, Injectable, signal } from '@angular/core';
 import { STORAGE_KEYS } from '../constants/storage-keys.constants';
 import { CartItem } from '../models/cart-item.model';
 import { Product } from '../models/product.model';
-import { Storage, StorageService } from './storage.service';
+import { OnStorageInit, StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartService implements Storage {
+export class CartService implements OnStorageInit {
   private cart = signal<CartItem[]>([]);
   isOpen = signal<boolean>(false);
   private storageService = inject(StorageService);
   cartItems = this.cart.asReadonly();
 
-  init() {
+  storageInit() {
     const cart = this.storageService.getItem(STORAGE_KEYS.CART);
     if (cart) this.cart.set(JSON.parse(cart));
   }

@@ -1,12 +1,12 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { STORAGE_KEYS } from '../constants/storage-keys.constants';
 import { Product } from '../models/product.model';
-import { Storage, StorageService } from './storage.service';
+import { OnStorageInit, StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FavoriteService implements Storage {
+export class FavoriteService implements OnStorageInit {
   private favorites = signal<Product[]>([]);
   isOpen = signal<boolean>(false);
 
@@ -14,7 +14,7 @@ export class FavoriteService implements Storage {
 
   favoritItems = this.favorites.asReadonly();
 
-  init() {
+  storageInit() {
     const favorites = this.storageService.getItem(STORAGE_KEYS.FAVORITES);
     if (favorites) this.favorites.set(JSON.parse(favorites));
   }

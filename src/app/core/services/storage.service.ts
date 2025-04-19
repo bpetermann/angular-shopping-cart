@@ -21,6 +21,6 @@ export class StorageService {
   }
 }
 
-export interface Storage {
-  init: () => void;
+export interface OnStorageInit {
+  storageInit: () => void;
 }

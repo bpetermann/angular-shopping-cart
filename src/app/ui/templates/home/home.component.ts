@@ -21,7 +21,7 @@ export class HomeComponent {
   readonly favoritesService = inject(FavoriteService);
 
   ngOnInit() {
-    this.cartService.init();
-    this.favoritesService.init();
+    this.cartService.storageInit();
+    this.favoritesService.storageInit();
   }
 }
