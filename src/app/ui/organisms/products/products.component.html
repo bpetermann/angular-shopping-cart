@@ -1,7 +1,11 @@
 <div>
+  @if (products().length) {
   <ul>
     @for (product of products(); track product.id) {
     <li><app-product [product]="product" /></li>
     }
   </ul>
+  } @else {
+  <p>No products found</p>
+  }
 </div>
