@@ -1,6 +1,6 @@
 @use "abstracts/mixins" as *;
 @use "abstracts/theme";
-@import "animations/fade";
+@use "animations/fade";
 
 .backdrop {
   position: fixed;
