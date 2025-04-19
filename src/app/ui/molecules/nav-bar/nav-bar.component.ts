@@ -1,5 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Category } from '../../../core/models/category.model';
+import {
+  Category,
+  PRODUCT_CATEGORIES,
+} from '../../../core/models/category.model';
 import { CartService } from '../../../core/services/cart.service';
 import { FavoriteService } from '../../../core/services/favorite.service';
 import { FilterService } from '../../../core/services/filter.service';
@@ -18,8 +21,7 @@ export class NavBarComponent {
   filterService = inject(FilterService);
   favoritesService = inject(FavoriteService);
 
-  categories: Category[] = ['shoes', 'bags'];
-
+  categories = inject(PRODUCT_CATEGORIES);
   activeCategory = this.filterService.category;
 
   onSelectCategory(category: Category) {

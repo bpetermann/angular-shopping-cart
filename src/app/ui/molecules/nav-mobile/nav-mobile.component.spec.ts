@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  Category,
+  PRODUCT_CATEGORIES,
+} from '../../../core/models/category.model';
 import { NavMobileComponent } from './nav-mobile.component';
 
 describe('NavMobileComponent', () => {
@@ -8,6 +12,12 @@ describe('NavMobileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NavMobileComponent],
+      providers: [
+        {
+          provide: PRODUCT_CATEGORIES,
+          useValue: ['shoes', 'bags'] as Category[],
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavMobileComponent);

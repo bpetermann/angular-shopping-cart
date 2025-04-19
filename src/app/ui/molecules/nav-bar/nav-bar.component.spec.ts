@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import {
+  Category,
+  PRODUCT_CATEGORIES,
+} from '../../../core/models/category.model';
 import { NavBarComponent } from './nav-bar.component';
 
 describe('NavBarComponent', () => {
@@ -8,9 +12,14 @@ describe('NavBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavBarComponent]
-    })
-    .compileComponents();
+      imports: [NavBarComponent],
+      providers: [
+        {
+          provide: PRODUCT_CATEGORIES,
+          useValue: ['shoes', 'bags'] as Category[],
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NavBarComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Category } from '../../../core/models/category.model';
+import {
+  Category,
+  PRODUCT_CATEGORIES,
+} from '../../../core/models/category.model';
 import { FilterService } from '../../../core/services/filter.service';
 
 @Component({
@@ -11,11 +14,10 @@ import { FilterService } from '../../../core/services/filter.service';
 })
 export class NavMobileComponent {
   isMenuOpen = signal(false);
+
   filterService = inject(FilterService);
+  categories = inject(PRODUCT_CATEGORIES);
   searchValue = this.filterService.searchTerm;
-
-  categories: Category[] = ['shoes', 'bags'];
-
   activeCategory = this.filterService.category;
 
   onSelectCategory(category: Category) {
