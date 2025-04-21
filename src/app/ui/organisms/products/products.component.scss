@@ -28,5 +28,11 @@
 
   p {
     padding: theme.$gap-size-xl;
+    margin: theme.$gap-size-xl;
+  }
+
+  .loader {
+    padding: theme.$gap-size-xl;
+    margin: theme.$gap-size-xl;
   }
 }

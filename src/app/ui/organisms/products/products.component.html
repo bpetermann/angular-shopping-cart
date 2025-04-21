@@ -1,5 +1,9 @@
 <div>
-  @if (products().length) {
+  @if(isLoading() && !error()){
+  <div class="loader" appSpinner></div>
+  } @else if (error()) {
+  <p>Please try again later</p>
+  } @else if (products().length) {
   <ul>
     @for (product of products(); track product.id) {
     <li><app-product [product]="product" /></li>
