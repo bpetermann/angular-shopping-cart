@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import {
   Component,
   computed,
@@ -7,9 +6,9 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { PRODUCT_API } from '../../../core/constants/product-api';
 import { Product } from '../../../core/models/product.model';
 import { FilterService } from '../../../core/services/filter.service';
+import { ProductsService } from '../../../core/services/products.service';
 import { SpinnerComponent } from '../../atoms/spinner/spinner.component';
 import { ProductComponent } from '../../molecules/product/product.component';
 
@@ -20,9 +19,9 @@ import { ProductComponent } from '../../molecules/product/product.component';
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit {
+  private productService = inject(ProductsService);
   private filterService = inject(FilterService);
   private destroyRef = inject(DestroyRef);
-  private http = inject(HttpClient);
 
   private storeItems = signal<Product[]>([]);
   isLoading = signal(false);
@@ -31,7 +30,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading.set(true);
 
-    const subscribtion = this.http.get<Product[]>(PRODUCT_API).subscribe({
+    const subscribtion = this.productService.getProducts().subscribe({
       next: (res) => this.storeItems.set(res),
       error: () => this.error.set(true),
       complete: () => this.isLoading.set(false),
