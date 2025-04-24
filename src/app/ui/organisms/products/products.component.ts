@@ -44,21 +44,7 @@ export class ProductsComponent implements OnInit {
     const category = this.filterService.category();
 
     return this.storeItems().filter((product) =>
-      this.filterProducts(product, category, searchTerms)
+      this.productService.filterProduct(product, category, searchTerms)
     );
   });
-
-  private filterProducts(
-    product: Product,
-    category: string,
-    searchTerms: string[]
-  ): boolean {
-    if (product.category.toLowerCase() !== category) return false;
-
-    const description = product.description.toLowerCase().split(' ');
-
-    return searchTerms.every((term) =>
-      description.some((word) => word.includes(term.toLowerCase()))
-    );
-  }
 }

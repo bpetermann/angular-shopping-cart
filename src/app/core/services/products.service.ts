@@ -16,4 +16,18 @@ export class ProductsService {
   private fetchProducts() {
     return this.http.get<Product[]>(PRODUCT_API);
   }
+
+  filterProduct(
+    product: Product,
+    category: string,
+    searchTerms: string[] = []
+  ): boolean {
+    if (product.category.toLowerCase() !== category) return false;
+
+    const description = product.description.toLowerCase().split(' ');
+
+    return searchTerms.every((term) =>
+      description.some((word) => word.includes(term.toLowerCase()))
+    );
+  }
 }
