@@ -52,7 +52,6 @@
         text-align: center;
         border: 1px solid theme.$border;
         outline: none;
-        border-radius: 4px;
 
         &:hover,
         &:focus {
@@ -133,15 +132,19 @@
         color: theme.$text-light;
         cursor: pointer;
         gap: theme.$gap-size-md;
+        border: 1px solid theme.$text-dark;
 
         p {
           font-weight: 500;
           font-size: theme.$gap-size-xl;
         }
 
-        &.disabled {
-          background-color: theme.$border;
-          cursor: not-allowed;
+        &:hover,
+        &:focus,
+        &:focus-visible {
+          background-color: color.adjust(theme.$text-dark, $lightness: 90%);
+          color: theme.$text-dark;
+          border: 1px solid theme.$text-dark;
         }
       }
     }

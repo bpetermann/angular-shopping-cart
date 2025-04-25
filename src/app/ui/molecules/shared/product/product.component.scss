@@ -23,14 +23,16 @@
   }
 
   .like-button {
-    all: unset;
+    border: none;
+    background-color: transparent;
     cursor: pointer;
     background-color: theme.$text-light;
-    height: theme.$font-size-lg;
+    height: 30px;
     padding: theme.$gap-size-xs;
     top: theme.$gap-size-xl;
     position: absolute;
     right: 0px;
+    display: inline-block;
   }
 
   .active {
@@ -45,6 +47,11 @@
     padding: theme.$gap-size-xl;
     border: 1px solid #000;
     outline: none;
+
+    &:hover,
+    &:focus {
+      background-color: color.adjust(theme.$secondary-color, $lightness: 10%);
+    }
   }
 
   .highlight {

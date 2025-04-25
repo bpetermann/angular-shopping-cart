@@ -51,7 +51,8 @@
           padding-bottom: 2px;
         }
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
           border-color: theme.$text-dark;
         }
       }

@@ -44,7 +44,8 @@
         text-align: center;
         color: theme.$text-dark;
 
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: color.adjust(theme.$text-dark, $lightness: 90%);
         }
       }

@@ -1,5 +1,6 @@
 @use "abstracts/mixins" as *;
 @use "abstracts/theme";
+@use "sass:color";
 
 .container {
   @include flex-column;
@@ -82,6 +83,12 @@
     outline: none;
     border: none;
     cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      background-color: color.adjust(theme.$highlight-color, $lightness: 10%);
+    }
   }
 
   > button:last-of-type:only-child {

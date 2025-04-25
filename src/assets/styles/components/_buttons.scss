@@ -2,7 +2,8 @@
 @use "abstracts/mixins";
 
 .icon-button {
-  all: unset;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
   @include mixins.flex-center;
 }

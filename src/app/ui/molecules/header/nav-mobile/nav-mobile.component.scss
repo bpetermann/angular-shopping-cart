@@ -18,18 +18,20 @@
     text-align: start;
     font-size: theme.$gap-size-xl;
     padding-left: theme.$gap-size-xl;
+    margin-left: 2px;
   }
 
   button {
-    all: unset;
     width: 48px;
     height: 40px;
+    border: none;
     border-right: 1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
     border-color: theme.$border;
     color: theme.$border;
+    background-color: transparent;
   }
 }
 
@@ -70,7 +72,8 @@ ul {
       text-align: center;
       color: theme.$text-dark;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: color.adjust(theme.$text-dark, $lightness: 90%);
       }
     }
