@@ -4,10 +4,11 @@ import { Product } from '../../../core/models/product.model';
 import { CartService } from '../../../core/services/cart.service';
 import { FavoriteService } from '../../../core/services/favorite.service';
 import { FilterService } from '../../../core/services/filter.service';
+import { HeartSVGComponent } from '../../atoms/svg';
 
 @Component({
   selector: 'app-product',
-  imports: [CommonModule],
+  imports: [CommonModule, HeartSVGComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })

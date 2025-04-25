@@ -31,27 +31,10 @@
     top: theme.$gap-size-xl;
     position: absolute;
     right: 0px;
-
-    svg {
-      height: theme.$font-size-lg;
-      width: auto;
-
-      &:hover {
-        color: theme.$highlight-color;
-
-        path:first-of-type {
-          @extend .heart-pop;
-        }
-      }
-    }
   }
 
   .active {
     color: theme.$highlight-color;
-  }
-
-  .heart-fill {
-    @extend .heart-pop;
   }
 
   .add-button {
