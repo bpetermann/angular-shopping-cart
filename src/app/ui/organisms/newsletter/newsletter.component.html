@@ -3,8 +3,15 @@
     <h2>Join our Newsletter!</h2>
     <p>Keep up to date</p>
   </div>
+  @if(newsletterSubsription()){
+  <div class="success">
+    <app-success-svg />
+    Thank you for your subscription!
+  </div>
+  } @else {
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <input
+      [class.invalid]="isInvalid(email)"
       id="email"
       type="email"
       placeholder="Your Email"
@@ -15,7 +22,7 @@
       #email="ngModel"
     />
 
-    @if(email.touched && email.dirty && email.invalid){
+    @if(isInvalid(email)){
     <p class="error">Please provide a valid email adress</p>
     }
     <p class="info">I'm mostly interested in</p>
@@ -39,10 +46,14 @@
       />
       <label id="mFashion">Men's Fashion</label>
     </div>
-    <button><p>Add my email</p></button>
+    <button [disabled]="isInvalid(email)" [class.disabled]="isInvalid(email)">
+      <app-mail-svg />
+      <p>Add my email</p>
+    </button>
     <p>
       You can unsubscribe at any time free of charge. Just a demo, no emails are
       stored
     </p>
   </form>
+  }
 </div>

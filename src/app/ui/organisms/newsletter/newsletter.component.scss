@@ -11,122 +11,144 @@
     @include flex-center;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0 theme.$gap-size-md;
     width: 100%;
     max-width: 1216px;
-    padding: 0 8px;
 
     @include md {
       flex-direction: row;
     }
 
+    > div:first-of-type {
+      @include flex-column;
+      margin-top: theme.$gap-size-xl;
+      padding: 32px 0;
+      gap: theme.$gap-size-xl;
+
+      @include md {
+        align-items: flex-start;
+      }
+    }
+
+    form,
+    .success {
+      background-color: theme.$text-light;
+      padding: 24px;
+      margin-top: theme.$gap-size-xl;
+      width: 100%;
+      max-width: 528px;
+    }
+
     form {
       display: flex;
       flex-direction: column;
-      background-color: theme.$text-light;
-      box-sizing: border-box;
-      padding: 24px;
-      margin-top: theme.$gap-size-xl;
       gap: theme.$gap-size-xl;
-      width: 100%;
-      max-width: 528px;
+      box-sizing: border-box;
 
       input[type="email"] {
         width: 100%;
-        text-align: start;
-        outline: none;
-        border: none;
         font-size: theme.$gap-size-xl;
-        padding: 12px 0px;
+        padding: theme.$gap-size-lg 0;
         text-align: center;
         border: 1px solid theme.$border;
-      }
+        outline: none;
+        border-radius: 4px;
 
-      .info {
-        font-weight: 600;
-        margin-top: theme.$gap-size-xl;
-      }
+        &:hover,
+        &:focus {
+          outline: 1.6px solid theme.$text-dark;
+          transition: 0.3s outline ease-in-out;
+        }
 
-      .error {
-        color: red;
-      }
+        &.invalid {
+          border-color: theme.$error-color !important;
 
-      input:hover,
-      input:focus,
-      input:active {
-        outline: 1.6px solid theme.$text-dark;
-        transition: 0.3s outline ease-in-out;
-      }
-
-      .radio {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+          &:hover,
+          &:focus {
+            outline: none;
+          }
+        }
       }
 
       input[type="radio"] {
-        flex-shrink: 0;
         appearance: none;
-        margin-left: 0px;
         width: theme.$gap-size-xl;
         height: theme.$gap-size-xl;
         border: 1px solid theme.$text-dark;
         border-radius: 50%;
         transform: translateY(-0.075em);
-        display: grid;
-        place-content: center;
+        @include flex-center;
+        margin-right: theme.$gap-size-md;
+
+        &::before {
+          content: "";
+          width: theme.$gap-size-md;
+          height: theme.$gap-size-md;
+          border-radius: 50%;
+          transform: scale(0);
+          transition: 120ms transform ease-in-out;
+          box-shadow: inset 1em 1em theme.$text-dark;
+        }
+
+        &:checked::before {
+          transform: scale(1);
+        }
       }
 
-      input[type="radio"]:checked {
-        border: 1px solid theme.$text-dark;
+      label[for^="wFashion"],
+      label[for^="mFashion"] {
+        font-weight: 500;
       }
 
-      input[type="radio"]::before {
-        content: "";
-        width: 10.4px;
-        height: 10.4px;
-        border-radius: 50%;
-        transform: scale(0);
-        transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em #1a1a1a;
+      p {
+        font-weight: 600;
+        margin: 0;
+
+        &.error {
+          color: theme.$error-color;
+        }
+
+        &.info {
+          margin-top: theme.$gap-size-xl;
+        }
+
+        &:last-of-type {
+          font-size: theme.$gap-size-lg;
+          margin: theme.$gap-size-md 0;
+          font-weight: 400;
+        }
       }
 
-      input[type="radio"]:checked::before {
-        transform: scale(1);
+      .radio {
+        display: flex;
+        align-items: center;
       }
 
       button {
         all: unset;
         @include flex-center;
         margin-top: theme.$gap-size-xl;
-        padding: 8px;
+        padding: theme.$gap-size-md;
         background-color: theme.$text-dark;
-        cursor: pointer;
-        gap: 8px;
-      }
-
-      button > p {
         color: theme.$text-light;
-        font-weight: 500;
-        font-size: theme.$gap-size-xl;
-      }
+        cursor: pointer;
+        gap: theme.$gap-size-md;
 
-      p:last-of-type {
-        font-size: 12px;
-        margin: 8px 0;
-        font-weight: 400;
+        p {
+          font-weight: 500;
+          font-size: theme.$gap-size-xl;
+        }
+
+        &.disabled {
+          background-color: theme.$border;
+          cursor: not-allowed;
+        }
       }
     }
-  }
 
-  .container > div:first-of-type {
-    @include flex-column;
-    margin-top: theme.$gap-size-xl;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    gap: theme.$gap-size-xl;
-
-    @include md {
-      align-items: flex-start;
+    .success {
+      @include flex-center;
+      gap: theme.$gap-size-md;
     }
   }
 }
