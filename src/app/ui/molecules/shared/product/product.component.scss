@@ -50,7 +50,9 @@
 
     &:hover,
     &:focus {
-      background-color: color.adjust(theme.$secondary-color, $lightness: 10%);
+      background-color: #00000099;
+      color: theme.$text-light;
+      transition: 0.3s background-color ease-in-out;
     }
   }
 
