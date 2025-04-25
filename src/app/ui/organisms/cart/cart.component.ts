@@ -13,7 +13,9 @@ import { ModalComponent } from '../../molecules/shared/modal/modal.component';
 })
 export class CartComponent {
   cartService = inject(CartService);
+
   cart = this.cartService.cartItems;
+  isOpen = this.cartService.isOpen;
 
   total = computed(() =>
     this.cart().reduce((prev, { price, amount }) => prev + price * amount, 0)

@@ -1,3 +1,4 @@
+@if(isOpen()){
 <app-modal (close)="onClose()" class="foo">
   <div class="container">
     <button (click)="onClose()" appCloseButton [fillColor]="'#000'"></button>
@@ -9,3 +10,4 @@
     </ul>
   </div>
 </app-modal>
+}

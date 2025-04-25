@@ -14,6 +14,7 @@ export class FavoritesComponent {
   favoriteService = inject(FavoriteService);
 
   favorites = this.favoriteService.favoritItems;
+  isOpen = this.favoriteService.isOpen;
 
   onClose() {
     this.favoriteService.close();
