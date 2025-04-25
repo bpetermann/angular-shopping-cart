@@ -1,28 +1,24 @@
 <div class="container">
-  <div class="foo">
+  <div>
     <h2>Join our Newsletter!</h2>
     <p>Keep up to date</p>
   </div>
-  @if(newsletterSubsription()){
+  @if(isSubscribed()){
   <div class="success">
     <app-success-svg />
     Thank you for your subscription!
   </div>
   } @else {
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <input
-      [class.invalid]="isInvalid(email)"
+      [class.invalid]="emailIsInvalid"
       id="email"
       type="email"
+      formControlName="email"
       placeholder="Your Email"
-      name="email"
-      ngModel
-      email
-      required
-      #email="ngModel"
+      (mousedown)="reset()"
     />
-
-    @if(isInvalid(email)){
+    @if(emailIsInvalid){
     <p class="error">Please provide a valid email adress</p>
     }
     <p class="info">I'm mostly interested in</p>
@@ -31,8 +27,7 @@
         id="wFashion"
         type="radio"
         value="wFashion"
-        ngModel
-        name="fashion"
+        formControlName="fashion"
       />
       <label for="wFashion">Women's Fashion</label>
     </div>
@@ -41,12 +36,11 @@
         id="mFashion"
         type="radio"
         value="mFashion"
-        ngModel
-        name="fashion"
+        formControlName="fashion"
       />
       <label id="mFashion">Men's Fashion</label>
     </div>
-    <button [disabled]="isInvalid(email)" [class.disabled]="isInvalid(email)">
+    <button>
       <app-mail-svg />
       <p>Add my email</p>
     </button>
