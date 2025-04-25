@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
-import { Product } from '../../../core/models/product.model';
-import { CartService } from '../../../core/services/cart.service';
-import { FavoriteService } from '../../../core/services/favorite.service';
-import { FilterService } from '../../../core/services/filter.service';
-import { HeartSVGComponent } from '../../atoms/svg';
+import { Product } from '../../../../core/models/product.model';
+import { CartService } from '../../../../core/services/cart.service';
+import { FavoriteService } from '../../../../core/services/favorite.service';
+import { FilterService } from '../../../../core/services/filter.service';
+import { HeartSVGComponent } from '../../../atoms/svg';
 
 @Component({
   selector: 'app-product',

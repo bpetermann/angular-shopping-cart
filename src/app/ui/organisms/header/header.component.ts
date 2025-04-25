@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { productCategoriesProvider } from '../../../core/models/category.model';
-import { InfoBarComponent } from '../../molecules/info-bar/info-bar.component';
-import { NavBarComponent } from '../../molecules/nav-bar/nav-bar.component';
-import { NavMobileComponent } from '../../molecules/nav-mobile/nav-mobile.component';
+import { InfoBarComponent } from '../../molecules/header/info-bar/info-bar.component';
+import { NavBarComponent } from '../../molecules/header/nav-bar/nav-bar.component';
+import { NavMobileComponent } from '../../molecules/header/nav-mobile/nav-mobile.component';
 
 @Component({
   selector: 'app-header',

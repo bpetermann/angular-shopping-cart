@@ -3,7 +3,7 @@ import { Component, computed, inject } from '@angular/core';
 import { Product } from '../../../core/models/product.model';
 import { CartService } from '../../../core/services/cart.service';
 import { CloseButtonComponent } from '../../atoms/close-button/close-button.component';
-import { ModalComponent } from '../../molecules/modal/modal.component';
+import { ModalComponent } from '../../molecules/shared/modal/modal.component';
 
 @Component({
   selector: 'app-cart',
