@@ -5,7 +5,7 @@
 :host {
   @include mixins.flex-center;
   background-color: theme.$text-dark;
-  color: them.$text-light;
+  color: theme.$text-light;
 
   div {
     @include mixins.flex-column;
