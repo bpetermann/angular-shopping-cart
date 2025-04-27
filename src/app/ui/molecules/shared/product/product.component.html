@@ -1,9 +1,10 @@
 <div class="image">
-  <img
-    src="/images/{{ product().name }}.webp"
-    alt="{{ product().description }}"
-    title="{{ product().description }}"
-  />
+  <a href="/product">
+    <img
+      src="/images/{{ product().name }}.webp"
+      alt="{{ product().description }}"
+      title="{{ product().description }}"
+  /></a>
   <button
     class="like-button"
     [class.active]="isFavorite()"
