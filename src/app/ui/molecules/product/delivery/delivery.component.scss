@@ -1,0 +1,38 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+@use "animations/pop";
+@use "sass:color";
+
+:host {
+  display: flex;
+  border: 1px solid theme.$border;
+  width: 100%;
+
+  ul {
+    width: 100%;
+    margin: 0px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 16px;
+    width: 100%;
+    border-bottom: 1px solid theme.$border;
+    padding: 16px;
+  }
+
+  li:first-of-type {
+    justify-content: space-between;
+  }
+
+  li:last-of-type {
+    border-bottom: none;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}

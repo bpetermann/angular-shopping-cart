@@ -1,0 +1,83 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+@use "sass:color";
+
+:host {
+  @include flex-center;
+  margin-top: theme.$gap-size-xl;
+
+  .container {
+    @include flex-between;
+    width: 100%;
+    max-width: theme.$screen-xl-min;
+    flex-direction: column;
+
+    @include md {
+      flex-direction: row;
+    }
+
+    div:first-of-type {
+      width: 100%;
+      @include flex-center;
+      align-self: flex-start;
+      position: sticky;
+      top: 0px;
+
+      .image {
+        width: 100%;
+        max-width: 490px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .product-info {
+      width: 100%;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: theme.$gap-size-md;
+
+      @include md {
+        align-items: flex-start;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      .action {
+        @include flex-center;
+        gap: 8px;
+      }
+
+      .action > button:first-of-type {
+        width: 100%;
+      }
+
+      .action > button:last-of-type {
+        border: 1px solid black;
+        background-color: transparent;
+        padding: 9px;
+      }
+
+      .active {
+        color: theme.$highlight-color;
+      }
+
+      .placeholder {
+        height: 600px;
+      }
+    }
+  }
+}

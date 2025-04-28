@@ -1,0 +1,38 @@
+@if(isLoading() && !error()){
+<div class="loader" appSpinner></div>
+} @else if (error()) {
+<p>Please try again later</p>
+} @else if (product()) {
+<div class="container">
+  <div>
+    <div class="image">
+      <img
+        src="/images/{{ product()!.name }}.webp"
+        alt="{{ product()!.description }}"
+        title="{{ product()!.description }}"
+      />
+    </div>
+  </div>
+  <div class="product-info">
+    <h2>
+      {{ product()!.name }}
+    </h2>
+    <p>
+      {{ product()!.description }}
+    </p>
+    <p>
+      {{ product()!.price | currency }}
+    </p>
+    <div class="action">
+      <button appPrimaryButton (click)="onAdd()">Add to Cart</button>
+      <button (click)="onToggleLike()" [class.active]="isFavorite()">
+        <app-heart-svg [isFavorite]="isFavorite()" />
+      </button>
+    </div>
+    <app-delivery />
+    <div class="placeholder"></div>
+  </div>
+</div>
+} @else {
+<p>No product found</p>
+}

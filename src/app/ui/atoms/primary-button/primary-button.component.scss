@@ -1,0 +1,29 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+@use "sass:color";
+
+:host {
+  all: unset;
+  @include flex-center;
+  padding: theme.$gap-size-lg;
+  background-color: theme.$text-dark;
+  color: theme.$text-light;
+  cursor: pointer;
+  gap: theme.$gap-size-md;
+  border: 1px solid theme.$text-dark;
+  width: 100%;
+  box-sizing: border-box;
+
+  p {
+    font-weight: 600;
+    font-size: theme.$gap-size-xl;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: color.adjust(theme.$text-dark, $lightness: 60%);
+    color: theme.$text-dark;
+    border: 1px solid theme.$text-dark;
+  }
+}

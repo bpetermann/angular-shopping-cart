@@ -9,7 +9,7 @@
   position: relative;
 
   &:hover {
-    color: color.adjust(theme.$text-dark, $lightness: 20%);
+    color: color.adjust(theme.$text-dark, $lightness: 10%);
   }
 
   span {
