@@ -5,12 +5,7 @@
 :host {
   @include flex-center;
   padding: theme.$gap-size-md;
-
   border-bottom: 1px solid theme.$border;
-
-  @include md {
-    border-bottom: unset;
-  }
 
   .container {
     @include flex-between;
