@@ -1,9 +1,15 @@
 @use "abstracts/mixins";
 @use "abstracts/theme";
 
-:host {
+a {
   @include mixins.flex-center;
+  text-decoration: none;
+  color: theme.$text-dark;
   gap: theme.$gap-size-md;
+
+  &:active {
+    color: theme.$text-dark;
+  }
 
   h1 {
     font-size: theme.$font-size-lg;
