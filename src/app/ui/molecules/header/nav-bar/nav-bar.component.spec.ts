@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { provideRouter } from '@angular/router';
 import {
   Category,
   PRODUCT_CATEGORIES,
@@ -14,6 +15,7 @@ describe('NavBarComponent', () => {
     await TestBed.configureTestingModule({
       imports: [NavBarComponent],
       providers: [
+        provideRouter([]),
         {
           provide: PRODUCT_CATEGORIES,
           useValue: ['shoes', 'bags'] as Category[],
