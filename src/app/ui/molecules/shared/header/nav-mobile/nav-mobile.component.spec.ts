@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   Category,
   PRODUCT_CATEGORIES,
-} from '../../../../core/models/category.model';
+} from '../../../../../core/models/category.model';
 import { NavMobileComponent } from './nav-mobile.component';
 
 describe('NavMobileComponent', () => {

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { DetailComponent } from '../../organisms/product/detail/detail.component';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [DetailComponent],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss',
 })
-export class ProductComponent {}
+export class ProductComponent {
+  productId = input.required<string>();
+}

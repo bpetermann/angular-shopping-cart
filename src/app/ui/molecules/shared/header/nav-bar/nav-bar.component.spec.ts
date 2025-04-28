@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import {
   Category,
   PRODUCT_CATEGORIES,
-} from '../../../../core/models/category.model';
+} from '../../../../../core/models/category.model';
 import { NavBarComponent } from './nav-bar.component';
 
 describe('NavBarComponent', () => {
