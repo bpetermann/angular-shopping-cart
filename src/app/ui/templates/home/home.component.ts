@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HeroComponent } from '../../organisms/hero/hero.component';
-import { NewsletterComponent } from '../../organisms/newsletter/newsletter.component';
-import { ProductsComponent } from '../../organisms/products/products.component';
+import { HeroComponent } from '../../organisms/home/hero/hero.component';
+import { NewsletterComponent } from '../../organisms/home/newsletter/newsletter.component';
+import { ProductsComponent } from '../../organisms/home/products/products.component';
 
 @Component({
   selector: 'app-home',

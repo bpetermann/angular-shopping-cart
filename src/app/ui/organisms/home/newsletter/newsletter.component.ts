@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MailSVGComponent, SuccessSVGCommponent } from '../../atoms/svg';
+import { MailSVGComponent, SuccessSVGCommponent } from '../../../atoms/svg';
 
 @Component({
   selector: 'app-newsletter',

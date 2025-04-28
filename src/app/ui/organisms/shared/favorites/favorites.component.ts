@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { FavoriteService } from '../../../core/services/favorite.service';
-import { CloseButtonComponent } from '../../atoms/close-button/close-button.component';
-import { ModalComponent } from '../../molecules/shared/modal/modal.component';
-import { ProductComponent } from '../../molecules/shared/product/product.component';
+import { FavoriteService } from '../../../../core/services/favorite.service';
+import { CloseButtonComponent } from '../../../atoms/close-button/close-button.component';
+import { ModalComponent } from '../../../molecules/modal/modal.component';
+import { ProductComponent } from '../../../molecules/product/product.component';
 
 @Component({
   selector: 'app-favorites',
