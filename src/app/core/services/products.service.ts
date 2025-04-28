@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { PRODUCT_API } from '../constants/product-api';
 import { Product } from '../models/product.model';
 
@@ -11,6 +12,12 @@ export class ProductsService {
 
   getProducts() {
     return this.fetchProducts();
+  }
+
+  getProduct(id: string) {
+    return this.fetchProducts().pipe(
+      map((products) => products.find((product) => product.id === id))
+    );
   }
 
   private fetchProducts() {
