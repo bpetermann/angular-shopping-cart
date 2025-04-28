@@ -16,7 +16,15 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "baseUrl": "./",
+    "paths": {
+      "@atoms/*": ["src/app/ui/atoms/*"],
+      "@molecules/*": ["src/app/ui/molecules/*"],
+      "@organisms/*": ["src/app/ui/organisms/*"],
+      "@template/*": ["src/app/ui/template/*"],
+      "@core/*": ["src/app/core/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
