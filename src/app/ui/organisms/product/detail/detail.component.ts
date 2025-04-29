@@ -8,6 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { PrimaryButtonComponent } from '@atoms/primary-button/primary-button.component';
+import { SpinnerComponent } from '@atoms/spinner/spinner.component';
 import { HeartSVGComponent } from '@atoms/svg';
 import { Product } from '@core/models/product.model';
 import { CartService } from '@core/services/cart.service';
@@ -22,6 +23,7 @@ import { DeliveryComponent } from '@molecules/product/delivery/delivery.componen
     PrimaryButtonComponent,
     HeartSVGComponent,
     DeliveryComponent,
+    SpinnerComponent,
   ],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
