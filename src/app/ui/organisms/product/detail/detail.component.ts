@@ -9,7 +9,11 @@ import {
 } from '@angular/core';
 import { PrimaryButtonComponent } from '@atoms/primary-button/primary-button.component';
 import { SpinnerComponent } from '@atoms/spinner/spinner.component';
-import { HeartSVGComponent } from '@atoms/svg';
+import {
+  FlameSVGCommponent,
+  HeartSVGComponent,
+  SizeSVGCommponent,
+} from '@atoms/svg';
 import { Product } from '@core/models/product.model';
 import { CartService } from '@core/services/cart.service';
 import { FavoriteService } from '@core/services/favorite.service';
@@ -24,6 +28,8 @@ import { DeliveryComponent } from '@molecules/product/delivery/delivery.componen
     HeartSVGComponent,
     DeliveryComponent,
     SpinnerComponent,
+    SizeSVGCommponent,
+    FlameSVGCommponent,
   ],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',

@@ -4,7 +4,10 @@
 
 :host {
   @include flex-center;
-  margin-top: theme.$gap-size-xl;
+
+  @include md {
+    margin-top: theme.$gap-size-xl;
+  }
 
   .container {
     @include flex-between;
@@ -16,12 +19,15 @@
       flex-direction: row;
     }
 
-    div:first-of-type {
+    .product-image {
       width: 100%;
       @include flex-center;
       align-self: flex-start;
-      position: sticky;
-      top: 0px;
+
+      @include md {
+        position: sticky;
+        top: 0px;
+      }
 
       .image {
         width: 100%;
@@ -40,25 +46,21 @@
       align-self: flex-start;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      gap: theme.$gap-size-md;
       padding: theme.$gap-size-md;
 
-      @include md {
-        align-items: flex-start;
-      }
-
       h2 {
-        font-size: 24px;
+        font-size: theme.$font-size-lg;
       }
 
       p {
-        font-size: 24px;
+        font-size: theme.$font-size-lg;
       }
 
       .action {
         @include flex-center;
-        gap: 8px;
+        width: 100%;
+        gap: theme.$gap-size-md;
       }
 
       .action > button:first-of-type {
@@ -75,9 +77,29 @@
         color: theme.$highlight-color;
       }
 
+      .info {
+        display: flex;
+        align-items: center;
+        padding: theme.$gap-size-lg;
+        margin-top: theme.$gap-size-xl;
+        margin-bottom: theme.$gap-size-xl;
+        gap: theme.$gap-size-md;
+        width: 100%;
+        background-color: theme.$border;
+
+        p {
+          font-size: theme.$font-size-md;
+        }
+      }
+
       .placeholder {
-        height: 600px;
+        height: 1000px;
       }
     }
+  }
+
+  .loader {
+    padding: theme.$gap-size-xl;
+    margin: theme.$gap-size-xl;
   }
 }
