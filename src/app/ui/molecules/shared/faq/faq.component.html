@@ -1,0 +1,14 @@
+<button (click)="onToggle()">
+  <p><ng-content /></p>
+  <img
+    src="/images/arrow.png"
+    class="arrow"
+    alt="Arrow icon"
+    [class.is-open]="isOpen()"
+  />
+</button>
+@if (isOpen()) {
+<div class="content">
+  {{ answer() }}
+</div>
+}

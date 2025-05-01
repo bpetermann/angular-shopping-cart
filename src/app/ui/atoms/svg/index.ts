@@ -1,7 +1,10 @@
+export { ArrowSVGComponent } from './arrow-svg.component';
 export { BoxSVGComponent } from './box-svg.component';
 export { FlameSVGCommponent } from './flame-svg.component';
 export { HeartSVGComponent } from './heart-svg.component';
+export { HelpSVGComponent } from './help-svg.component';
 export { MailSVGComponent } from './mail-svg.component';
+export { RedeemSVGComponent } from './redeem-svg.component';
 export { ReturnSVGComponent } from './return-svg.component';
 export { SizeSVGCommponent } from './size-svg.component';
 export { SuccessSVGCommponent } from './success-svg.component';
