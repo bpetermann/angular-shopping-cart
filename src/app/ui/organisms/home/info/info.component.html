@@ -1,0 +1,13 @@
+<ul>
+  @for (faq of faqs; track faq.question) {
+  <li>
+    <app-faq [answer]="faq.answer">
+      <ng-container
+        *ngIf="faq.svg"
+        [ngComponentOutlet]="faq.svg"
+      ></ng-container>
+      {{ faq.question }}</app-faq
+    >
+  </li>
+  }
+</ul>
