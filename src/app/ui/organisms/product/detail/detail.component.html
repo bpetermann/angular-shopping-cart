@@ -38,6 +38,13 @@
       <p>This is one of our most popular articles this month</p>
     </div>
     <app-delivery />
+    <ul>
+      @for (faq of faqs; track faq.question) {
+      <li>
+        <app-faq [answer]="faq.answer">{{ faq.question }}</app-faq>
+      </li>
+      }
+    </ul>
     <div class="placeholder"></div>
   </div>
 </div>

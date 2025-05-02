@@ -19,6 +19,7 @@ import { CartService } from '@core/services/cart.service';
 import { FavoriteService } from '@core/services/favorite.service';
 import { ProductsService } from '@core/services/products.service';
 import { DeliveryComponent } from '@molecules/product/delivery/delivery.component';
+import { FaqComponent } from '@molecules/shared/faq/faq.component';
 
 @Component({
   selector: 'app-detail',
@@ -30,6 +31,7 @@ import { DeliveryComponent } from '@molecules/product/delivery/delivery.componen
     SpinnerComponent,
     SizeSVGCommponent,
     FlameSVGCommponent,
+    FaqComponent,
   ],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
@@ -47,6 +49,16 @@ export class DetailComponent {
   favorites = this.favoriteService.favoritItems;
   isLoading = signal(false);
   error = signal(false);
+
+  faqs = [
+    {
+      question: 'Material and care instructions',
+      answer: 'More about material and care instructions',
+    },
+    { question: 'More about this product', answer: 'More about this product' },
+    { question: 'Fit', answer: 'More about the fit' },
+    { question: 'Care instructions', answer: 'More about care instructions' },
+  ];
 
   isFavorite = computed(
     () => !!this.favorites().find(({ id }) => id === this.product()?.id)

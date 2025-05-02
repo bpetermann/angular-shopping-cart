@@ -93,8 +93,16 @@
       }
 
       .placeholder {
-        height: 1000px;
+        height: theme.$screen-sm-min;
       }
+    }
+
+    ul {
+      margin-top: theme.$gap-size-2xl;
+    }
+
+    li {
+      list-style: none;
     }
   }
 
