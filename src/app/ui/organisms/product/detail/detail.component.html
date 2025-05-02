@@ -4,7 +4,7 @@
 <p>Please try again later</p>
 } @else if (product()) {
 <div class="container">
-  <div class="product-image">
+  <div class="left-panel">
     <div class="image">
       <img
         src="/images/{{ product()!.name }}.webp"
@@ -13,7 +13,7 @@
       />
     </div>
   </div>
-  <div class="product-info">
+  <div class="right-panel">
     <h2>
       {{ product()!.name }}
     </h2>

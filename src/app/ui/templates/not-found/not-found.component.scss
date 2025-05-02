@@ -1,0 +1,18 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+@use "sass:color";
+
+main {
+  @include flex-center;
+  background-color: theme.$border;
+  padding: 128px;
+
+  div {
+    @include flex-column;
+    gap: theme.$gap-size-2xl;
+
+    h2 {
+      font-size: theme.$font-size-lg;
+    }
+  }
+}

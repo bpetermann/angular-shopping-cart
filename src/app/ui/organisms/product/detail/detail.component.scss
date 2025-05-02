@@ -19,7 +19,7 @@
       flex-direction: row;
     }
 
-    .product-image {
+    .left-panel {
       width: 100%;
       @include flex-center;
       align-self: flex-start;
@@ -41,7 +41,7 @@
       }
     }
 
-    .product-info {
+    .right-panel {
       width: 100%;
       align-self: flex-start;
       display: flex;

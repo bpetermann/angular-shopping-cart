@@ -24,7 +24,7 @@
     &:hover,
     &:focus-visible {
       background-color: color.adjust(theme.$text-dark, $lightness: 60%);
-      border: 1px solid theme.$text-dark;
+      border-color: theme.$text-dark;
     }
 
     .arrow {
