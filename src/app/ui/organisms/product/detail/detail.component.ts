@@ -1,37 +1,22 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  input,
-  signal,
-} from '@angular/core';
-import { PrimaryButtonComponent } from '@atoms/primary-button/primary-button.component';
+import { Component, DestroyRef, inject, input, signal } from '@angular/core';
 import { SpinnerComponent } from '@atoms/spinner/spinner.component';
-import {
-  FlameSVGCommponent,
-  HeartSVGComponent,
-  SizeSVGCommponent,
-} from '@atoms/svg';
 import { Product } from '@core/models/product.model';
-import { CartService } from '@core/services/cart.service';
-import { FavoriteService } from '@core/services/favorite.service';
 import { ProductsService } from '@core/services/products.service';
+import { ActionComponent } from '@molecules/product/action/action.component';
 import { DeliveryComponent } from '@molecules/product/delivery/delivery.component';
-import { FaqComponent } from '@molecules/shared/faq/faq.component';
+import { GalleryComponent } from '@molecules/product/gallery/gallery.component';
+import { InfoComponent } from '@molecules/product/info/info.component';
 
 @Component({
   selector: 'app-detail',
   imports: [
+    GalleryComponent,
+    ActionComponent,
+    InfoComponent,
     CommonModule,
-    PrimaryButtonComponent,
-    HeartSVGComponent,
     DeliveryComponent,
     SpinnerComponent,
-    SizeSVGCommponent,
-    FlameSVGCommponent,
-    FaqComponent,
   ],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
@@ -40,29 +25,11 @@ export class DetailComponent {
   id = input.required<string>();
 
   private productService = inject(ProductsService);
-  private cartService = inject(CartService);
-  private favoriteService = inject(FavoriteService);
-
   private destroyRef = inject(DestroyRef);
 
   product = signal<Product | undefined>(undefined);
-  favorites = this.favoriteService.favoritItems;
   isLoading = signal(false);
   error = signal(false);
-
-  faqs = [
-    {
-      question: 'Material and care instructions',
-      answer: 'More about material and care instructions',
-    },
-    { question: 'More about this product', answer: 'More about this product' },
-    { question: 'Fit', answer: 'More about the fit' },
-    { question: 'Care instructions', answer: 'More about care instructions' },
-  ];
-
-  isFavorite = computed(
-    () => !!this.favorites().find(({ id }) => id === this.product()?.id)
-  );
 
   ngOnInit(): void {
     this.isLoading.set(true);
@@ -74,15 +41,5 @@ export class DetailComponent {
     });
 
     this.destroyRef.onDestroy(() => subscribtion.unsubscribe());
-  }
-
-  onAdd() {
-    const product = this.product();
-    if (!product) return;
-    this.cartService.addCartItem(product);
-  }
-
-  onToggleLike() {
-    this.favoriteService.toggleFavorite(this.product()!);
   }
 }

@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FaqComponent } from '@atoms/faq/faq.component';
 import {
   HelpSVGComponent,
   RedeemSVGComponent,
   TruckSVGComponent,
 } from '@atoms/svg';
-import { FaqComponent } from '@molecules/shared/faq/faq.component';
 
 @Component({
   selector: 'app-info',

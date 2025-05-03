@@ -1,0 +1,23 @@
+<h2>
+  {{ product()!.name }}
+</h2>
+<p>
+  {{ product()!.description }}
+</p>
+<p>
+  {{ product()!.price | currency }}
+</p>
+<div class="info">
+  <app-size-svg />
+  <p>We recommend one size larger</p>
+</div>
+<div class="action">
+  <button appPrimaryButton (click)="onAdd()">Add to Cart</button>
+  <button (click)="onToggleLike()" [class.active]="isFavorite()">
+    <app-heart-svg [isFavorite]="isFavorite()" />
+  </button>
+</div>
+<div class="info">
+  <app-flame-svg />
+  <p>This is one of our most popular articles this month</p>
+</div>

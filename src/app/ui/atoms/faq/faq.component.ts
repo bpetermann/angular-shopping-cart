@@ -9,7 +9,7 @@ import { Component, input, signal } from '@angular/core';
 export class FaqComponent {
   isOpen = signal<boolean>(false);
 
-  answer = input.required();
+  answer = input.required<string>();
 
   onToggle() {
     this.isOpen.update((prev) => !prev);

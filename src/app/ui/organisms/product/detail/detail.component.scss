@@ -20,89 +20,27 @@
     }
 
     .left-panel {
-      width: 100%;
       @include flex-center;
       align-self: flex-start;
+      width: 100%;
 
       @include md {
         position: sticky;
         top: 0px;
       }
-
-      .image {
-        width: 100%;
-        max-width: 490px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
     }
 
     .right-panel {
-      width: 100%;
       align-self: flex-start;
       display: flex;
       flex-direction: column;
+      width: 100%;
       gap: theme.$gap-size-md;
       padding: theme.$gap-size-md;
-
-      h2 {
-        font-size: theme.$font-size-lg;
-      }
-
-      p {
-        font-size: theme.$font-size-lg;
-      }
-
-      .action {
-        @include flex-center;
-        width: 100%;
-        gap: theme.$gap-size-md;
-      }
-
-      .action > button:first-of-type {
-        width: 100%;
-      }
-
-      .action > button:last-of-type {
-        border: 1px solid black;
-        background-color: transparent;
-        padding: 9px;
-      }
-
-      .active {
-        color: theme.$highlight-color;
-      }
-
-      .info {
-        display: flex;
-        align-items: center;
-        padding: theme.$gap-size-lg;
-        margin-top: theme.$gap-size-xl;
-        margin-bottom: theme.$gap-size-xl;
-        gap: theme.$gap-size-md;
-        width: 100%;
-        background-color: theme.$border;
-
-        p {
-          font-size: theme.$font-size-md;
-        }
-      }
 
       .placeholder {
         height: theme.$screen-sm-min;
       }
-    }
-
-    ul {
-      margin-top: theme.$gap-size-2xl;
-    }
-
-    li {
-      list-style: none;
     }
   }
 

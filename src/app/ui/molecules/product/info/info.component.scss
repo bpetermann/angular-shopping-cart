@@ -1,0 +1,9 @@
+@use "abstracts/theme";
+
+ul {
+  margin-top: theme.$gap-size-2xl;
+}
+
+li {
+  list-style: none;
+}

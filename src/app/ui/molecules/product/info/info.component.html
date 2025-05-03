@@ -1,0 +1,7 @@
+<ul>
+  @for (faq of faqs; track faq.question) {
+  <li>
+    <app-faq [answer]="faq.answer">{{ faq.question }}</app-faq>
+  </li>
+  }
+</ul>

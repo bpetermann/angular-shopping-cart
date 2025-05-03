@@ -1,53 +1,17 @@
 @if(isLoading() && !error()){
 <div class="loader" appSpinner></div>
-} @else if (error()) {
-<p>Please try again later</p>
-} @else if (product()) {
+} @else if (error() || !product()) {
+<p class="loader">Please try again later</p>
+} @else {
 <div class="container">
   <div class="left-panel">
-    <div class="image">
-      <img
-        src="/images/{{ product()!.name }}.webp"
-        alt="{{ product()!.description }}"
-        title="{{ product()!.description }}"
-      />
-    </div>
+    <app-gallery [product]="product()!" />
   </div>
   <div class="right-panel">
-    <h2>
-      {{ product()!.name }}
-    </h2>
-    <p>
-      {{ product()!.description }}
-    </p>
-    <p>
-      {{ product()!.price | currency }}
-    </p>
-    <div class="info">
-      <app-size-svg />
-      <p>We recommend one size larger</p>
-    </div>
-    <div class="action">
-      <button appPrimaryButton (click)="onAdd()">Add to Cart</button>
-      <button (click)="onToggleLike()" [class.active]="isFavorite()">
-        <app-heart-svg [isFavorite]="isFavorite()" />
-      </button>
-    </div>
-    <div class="info">
-      <app-flame-svg />
-      <p>This is one of our most popular articles this month</p>
-    </div>
+    <app-action [product]="product()!" />
     <app-delivery />
-    <ul>
-      @for (faq of faqs; track faq.question) {
-      <li>
-        <app-faq [answer]="faq.answer">{{ faq.question }}</app-faq>
-      </li>
-      }
-    </ul>
+    <app-info />
     <div class="placeholder"></div>
   </div>
 </div>
-} @else {
-<p>No product found</p>
 }
