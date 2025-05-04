@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CloseButtonComponent } from '../../../../atoms/close-button/close-button.component';
+import { CloseButtonComponent } from '@atoms/close-button/close-button.component';
 
 @Component({
   selector: 'app-info-bar',

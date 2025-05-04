@@ -1,10 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  Category,
-  PRODUCT_CATEGORIES,
-} from '../../../../../core/models/category.model';
-import { FilterService } from '../../../../../core/services/filter.service';
+import { Category, PRODUCT_CATEGORIES } from '@core/models/category.model';
+import { FilterService } from '@core/services/filter.service';
 
 @Component({
   selector: 'app-nav-mobile',

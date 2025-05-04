@@ -6,11 +6,11 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { Product } from '../../../../core/models/product.model';
-import { FilterService } from '../../../../core/services/filter.service';
-import { ProductsService } from '../../../../core/services/products.service';
-import { SpinnerComponent } from '../../../atoms/spinner/spinner.component';
-import { ProductComponent } from '../../../molecules/home/product/product.component';
+import { SpinnerComponent } from '@atoms/spinner/spinner.component';
+import { Product } from '@core/models/product.model';
+import { FilterService } from '@core/services/filter.service';
+import { ProductsService } from '@core/services/products.service';
+import { ProductComponent } from '@molecules/home/product/product.component';
 
 @Component({
   selector: 'app-products',
