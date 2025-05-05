@@ -35,9 +35,8 @@ export class ActionComponent {
   );
 
   onAdd() {
-    const product = this.product();
-    if (!product) return;
-    this.cartService.addCartItem(product);
+    this.cartService.addCartItem(this.product());
+    if (this.isFavorite()) this.favoriteService.toggleFavorite(this.product());
   }
 
   onToggleLike() {
