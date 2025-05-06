@@ -1,6 +1,6 @@
 # Angular Shopping Cart
 
-This is a demo project I built to start learning Angular. It’s a simple shopping cart application that showcases a variety of modern Angular features such as **signals**, **services**, **routing**, and more. I've also followed **Atomic Design principles** for the folder structure to practice building scalable and maintainable components.
+This is a demo project I built to start learning Angular. It’s a simple shopping cart application that showcases a variety of modern Angular features such as **signals**, **services**, **routing**, and more. The folder Structure follows the **Atomic Design principles**.
 
 ## Development server
 
