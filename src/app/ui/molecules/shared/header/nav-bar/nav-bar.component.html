@@ -15,7 +15,15 @@
   </nav>
   <app-logo />
   <div>
-    <button appLikeButton (click)="onOpenFavorites()"></button>
-    <button appCartButton (click)="onOpenCart()"></button>
+    <button
+      appLikeButton
+      (click)="onOpenFavorites()"
+      aria-label="Toggle favorites"
+    ></button>
+    <button
+      appCartButton
+      (click)="onOpenCart()"
+      aria-label="Toggle cart"
+    ></button>
   </div>
 </div>

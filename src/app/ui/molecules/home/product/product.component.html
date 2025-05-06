@@ -7,6 +7,7 @@
   /></a>
   <button
     class="like-button"
+    aria-label="Like this product"
     [class.active]="isFavorite()"
     (click)="onToggleLike()"
   >
@@ -19,4 +20,6 @@
   }
 </p>
 <p>{{ product().price | currency }}</p>
-<button class="add-button" (click)="onAdd()">Add to Cart</button>
+<button class="add-button" aria-label="Add to Cart" (click)="onAdd()">
+  Add to Cart
+</button>
