@@ -19,7 +19,7 @@
       flex-direction: row;
     }
 
-    .left-panel {
+    > div:first-child {
       @include flex-center;
       align-self: flex-start;
       width: 100%;
@@ -30,17 +30,13 @@
       }
     }
 
-    .right-panel {
+    > div:last-child {
       align-self: flex-start;
       display: flex;
       flex-direction: column;
       width: 100%;
       gap: theme.$gap-size-md;
       padding: theme.$gap-size-md;
-
-      .placeholder {
-        height: theme.$screen-sm-min;
-      }
     }
   }
 

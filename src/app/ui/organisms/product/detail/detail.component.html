@@ -4,14 +4,13 @@
 <p class="loader">Please try again later</p>
 } @else {
 <div class="container">
-  <div class="left-panel">
+  <div>
     <app-gallery [product]="product()!" />
   </div>
-  <div class="right-panel">
+  <div>
     <app-action [product]="product()!" />
     <app-delivery />
     <app-info />
-    <div class="placeholder"></div>
   </div>
 </div>
 }
