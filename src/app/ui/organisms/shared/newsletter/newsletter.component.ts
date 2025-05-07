@@ -42,9 +42,18 @@ export class NewsletterComponent {
     this.form.controls.email.markAsUntouched();
   }
 
+  checkOnEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      const target = event.target as HTMLInputElement;
+      target.checked = true;
+      target.dispatchEvent(new Event('change'));
+    }
+  }
+
   onSubmit() {
     if (!this.emailValue) {
       this.form.controls.email.markAsDirty();
+      this.form.controls.email.markAsTouched();
       return;
     }
 

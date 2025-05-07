@@ -29,6 +29,9 @@
         aria-label="wFashion"
         value="wFashion"
         formControlName="fashion"
+        role="radio"
+        tabindex="0"
+        (keydown)="checkOnEnter($event)"
       />
       <label for="wFashion">Women's Fashion</label>
     </div>
@@ -39,6 +42,9 @@
         value="mFashion"
         aria-label="mFashion"
         formControlName="fashion"
+        role="radio"
+        tabindex="0"
+        (keydown)="checkOnEnter($event)"
       />
       <label id="mFashion">Men's Fashion</label>
     </div>

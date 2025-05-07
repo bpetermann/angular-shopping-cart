@@ -140,8 +140,7 @@
         }
 
         &:hover,
-        &:focus,
-        &:focus-visible {
+        &:focus {
           background-color: color.adjust(theme.$text-dark, $lightness: 90%);
           color: theme.$text-dark;
           border: 1px solid theme.$text-dark;
