@@ -1,8 +1,12 @@
 @use "abstracts/theme";
+@use "abstracts/mixins" as *;
 
 ul {
   margin-top: theme.$gap-size-2xl;
-  margin-bottom: theme.$screen-sm-min;
+
+  @include md {
+    margin-bottom: theme.$screen-sm-min;
+  }
 }
 
 li {
