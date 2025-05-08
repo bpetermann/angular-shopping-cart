@@ -1,0 +1,63 @@
+@use "abstracts/theme";
+@use "abstracts/mixins";
+@use "abstracts/mixins" as *;
+
+:host {
+  @include mixins.flex-center;
+  background-color: #6328e0;
+  color: theme.$text-light;
+  padding-top: 32px;
+  padding: theme.$gap-size-3xl theme.$gap-size-md;
+
+  span {
+    padding: theme.$gap-size-lg 0px;
+    display: flex;
+    align-items: center;
+    gap: theme.$gap-size-md;
+    font-size: theme.$font-size-lg;
+    font-weight: 400;
+    justify-content: flex-start;
+  }
+
+  .icon-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: theme.$gap-size-md;
+  }
+
+  .container {
+    width: 100%;
+    display: grid;
+    max-width: theme.$screen-xl-min;
+    grid-template-columns: repeat(auto-fit, minmax(296px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    column-gap: theme.$gap-size-md;
+    row-gap: theme.$gap-size-2xl;
+
+    .item > ul {
+      margin-top: theme.$gap-size-md;
+      display: flex;
+      flex-direction: column;
+      gap: theme.$gap-size-xl;
+    }
+
+    .item-row > ul {
+      margin-top: theme.$gap-size-md;
+      display: flex;
+      gap: theme.$gap-size-xl;
+    }
+
+    .space {
+      @include md {
+        margin-top: 56px;
+      }
+    }
+  }
+
+  li {
+    list-style: none;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
