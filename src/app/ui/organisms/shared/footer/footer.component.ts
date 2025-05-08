@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { LegalLinksComponent } from '@molecules/shared/footer/legal-links/legal-links.component';
+import { OverviewComponent } from '@molecules/shared/footer/overview/overview.component';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [OverviewComponent, LegalLinksComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {
-  socialMedia = ['facebook', 'spotify', 'instagram', 'youtube', 'twitter'];
-  links = ['About', 'Imprint', 'Terms & Condition', ' Data Settings'];
-}
+export class FooterComponent {}

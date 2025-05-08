@@ -6,7 +6,7 @@
   @include mixins.flex-center;
   background-color: #6328e0;
   color: theme.$text-light;
-  padding-top: 32px;
+  margin-top: theme.$gap-size-3xl;
   padding: theme.$gap-size-3xl theme.$gap-size-md;
 
   span {
@@ -15,7 +15,6 @@
     align-items: center;
     gap: theme.$gap-size-md;
     font-size: theme.$font-size-lg;
-    font-weight: 400;
     justify-content: flex-start;
   }
 
@@ -42,10 +41,8 @@
       gap: theme.$gap-size-xl;
     }
 
-    .item-row > ul {
-      margin-top: theme.$gap-size-md;
-      display: flex;
-      gap: theme.$gap-size-xl;
+    .row > ul {
+      flex-direction: row;
     }
 
     .space {
@@ -58,6 +55,5 @@
   li {
     list-style: none;
     font-size: 14px;
-    font-weight: 400;
   }
 }

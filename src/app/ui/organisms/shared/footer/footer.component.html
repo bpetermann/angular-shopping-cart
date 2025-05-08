@@ -1,17 +1,2 @@
-<div>
-  <nav class="links">
-    <ul>
-      @for (link of links; track link){
-      <li>{{ link }}</li>
-      }
-    </ul>
-  </nav>
-  <nav class="social-media">
-    Find more inspiration:
-    <ul>
-      @for (item of socialMedia; track item) {
-      <li><img src="/images/{{ item }}.png" alt="{{ item }} logo" /></li>
-      }
-    </ul>
-  </nav>
-</div>
+<app-overview />
+<app-legal-links />
