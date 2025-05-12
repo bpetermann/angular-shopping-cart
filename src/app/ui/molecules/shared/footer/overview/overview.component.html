@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="item">
+  <div>
     <span><app-mail-svg />Help & Contact</span>
     <ul>
       @for (item of help; track item) {
@@ -7,22 +7,22 @@
       }
     </ul>
   </div>
-  <div class="item space">
+  <div class="space">
     <ul>
       @for (item of help2; track item) {
       <li>{{ item }}</li>
       }
     </ul>
   </div>
-  <div class="item">
+  <div>
     <span><app-redeem-svg />Gift vouchers</span>
     <ul>
-      @for (item of vouchers; track item) {
+      @for (item of gitVouchers; track item) {
       <li>{{ item }}</li>
       }
     </ul>
   </div>
-  <div class="item">
+  <div>
     <span><app-help-svg />About us</span>
     <ul>
       @for (item of about; track item) {
@@ -30,30 +30,35 @@
       }
     </ul>
   </div>
-  <div class="item row">
+  <div class="row">
     <span><app-truck-svg />Our partners</span>
     <ul>
-      <li><app-post-svg /></li>
-      <li><app-dhl-svg /></li>
-      <li><app-hermes-svg /></li>
+      @for (item of partners; track item) {
+      <li>
+        <ng-container [ngComponentOutlet]="item"></ng-container>
+      </li>
+      }
     </ul>
   </div>
-  <div class="item row">
+  <div class="row">
     <span><app-card-svg />Our payment methods</span>
     <ul>
+      @for (item of paymentMethods; track item) {
       <li>
-        <app-bill-svg />
+        <ng-container [ngComponentOutlet]="item"></ng-container>
       </li>
+      }
     </ul>
   </div>
-  <div class="item">
+  <div>
     <span><app-wallet-svg />Our advantages</span>
     <ul>
-      <li class="icon-item">
-        <app-truck-svg />Free shipping for purchases over $30
+      @for (item of advantages; track item.text) {
+      <li class="icon">
+        <ng-container [ngComponentOutlet]="item.icon"></ng-container>
+        {{ item.text }}
       </li>
-      <li class="icon-item"><app-return-svg />30 days return policy</li>
-      <li class="icon-item"><app-box-svg />Flexible payment options</li>
+      }
     </ul>
   </div>
 </div>

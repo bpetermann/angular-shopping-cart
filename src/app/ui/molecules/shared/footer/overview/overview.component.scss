@@ -18,7 +18,7 @@
     justify-content: flex-start;
   }
 
-  .icon-item {
+  .icon {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -34,7 +34,7 @@
     column-gap: theme.$gap-size-md;
     row-gap: theme.$gap-size-2xl;
 
-    .item > ul {
+    div > ul {
       margin-top: theme.$gap-size-md;
       display: flex;
       flex-direction: column;

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   BillSVGComponent,
@@ -20,15 +21,10 @@ import {
     TruckSVGComponent,
     HelpSVGComponent,
     RedeemSVGComponent,
-    ReturnSVGComponent,
     CardSVGComponent,
-    BoxSVGComponent,
     WalletSVGComponent,
     MailSVGComponent,
-    PostSVGComponent,
-    DHLSVGComponent,
-    HermesSVGComponent,
-    BillSVGComponent,
+    CommonModule,
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss',
@@ -40,6 +36,7 @@ export class OverviewComponent {
     'Track shipment',
     'Complaining about a faulty item',
   ];
+
   help2 = [
     'Shipping information',
     'Return order',
@@ -47,7 +44,8 @@ export class OverviewComponent {
     'Report a security vulnerability',
     'Product security',
   ];
-  vouchers = [
+
+  gitVouchers = [
     'Buy gift vouchers',
     'About gift vouchers and discount codes',
     'Redeem a gift voucher',
@@ -60,5 +58,15 @@ export class OverviewComponent {
     'Investor Relations',
     'Lounge',
     'Partner',
+  ];
+
+  partners = [PostSVGComponent, DHLSVGComponent, HermesSVGComponent];
+
+  paymentMethods = [BillSVGComponent];
+
+  advantages = [
+    { text: 'Free shipping for purchases over $30', icon: TruckSVGComponent },
+    { text: '30 days return policy', icon: ReturnSVGComponent },
+    { text: 'Flexible payment options', icon: BoxSVGComponent },
   ];
 }
