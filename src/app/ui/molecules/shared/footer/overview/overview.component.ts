@@ -1,17 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
+  AmexCardSVGComponent,
   BillSVGComponent,
   BoxSVGComponent,
   CardSVGComponent,
   DHLSVGComponent,
+  DinersCardSVGComponent,
+  DiscoverSVGComponent,
+  EPSSVGComponent,
   HelpSVGComponent,
   HermesSVGComponent,
   MailSVGComponent,
+  MasterCardSVGComponent,
+  PaypalSVGComponent,
   PostSVGComponent,
   RedeemSVGComponent,
   ReturnSVGComponent,
   TruckSVGComponent,
+  VisaSVGComponent,
   WalletSVGComponent,
 } from '@atoms/svg';
 
@@ -62,7 +69,16 @@ export class OverviewComponent {
 
   partners = [PostSVGComponent, DHLSVGComponent, HermesSVGComponent];
 
-  paymentMethods = [BillSVGComponent];
+  paymentMethods = [
+    MasterCardSVGComponent,
+    VisaSVGComponent,
+    EPSSVGComponent,
+    PaypalSVGComponent,
+    BillSVGComponent,
+    AmexCardSVGComponent,
+    DiscoverSVGComponent,
+    DinersCardSVGComponent,
+  ];
 
   advantages = [
     { text: 'Free shipping for purchases over $30', icon: TruckSVGComponent },
