@@ -15,6 +15,9 @@
   </nav>
   <app-logo />
   <div>
+    <a [routerLink]="['/account']" class="account-link" role="link">
+      <app-login-svg />
+    </a>
     <button
       appLikeButton
       (click)="onOpenFavorites()"

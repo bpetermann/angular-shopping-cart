@@ -1,4 +1,5 @@
 @use "abstracts/mixins" as *;
+@use "components/buttons" as *;
 @use "abstracts/theme";
 @use "sass:color";
 
@@ -63,6 +64,19 @@
 
     @include md {
       min-width: 225px;
+    }
+  }
+
+  .account-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    color: theme.$text-dark;
+    line-height: 0;
+
+    &:hover {
+      color: color.adjust(theme.$text-dark, $lightness: 20%);
     }
   }
 }

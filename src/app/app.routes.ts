@@ -14,6 +14,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'account',
+    loadComponent: () =>
+      import('./ui/templates/account/account.component').then(
+        (mod) => mod.AccountComponent
+      ),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('./ui/templates/not-found/not-found.component').then(

@@ -11,6 +11,7 @@ export { FlameSVGCommponent } from './flame-svg.component';
 export { HeartSVGComponent } from './heart-svg.component';
 export { HelpSVGComponent } from './help-svg.component';
 export { HermesSVGComponent } from './hermes-svg.component';
+export { LoginSVGComponent } from './login-svg.component';
 export { MailSVGComponent } from './mail-svg.component';
 export { MasterCardSVGComponent } from './mastercard-svg.component';
 export { PaypalSVGComponent } from './paypal-svg.component';
