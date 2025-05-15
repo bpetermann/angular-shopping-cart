@@ -1,1 +1,70 @@
-<p>account works!</p>
+<main>
+  <form action="">
+    @if (isLoginView()) {
+    <h2>Login</h2>
+    <div>
+      <label for="email">E-mail address</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Your Email"
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Your Password"
+      />
+    </div>
+    }
+    <div>
+      <button
+        appPrimaryButton
+        type="button"
+        (click)="onLogin()"
+        [class.secondary]="!isLoginView()"
+      >
+        {{ isLoginView() ? "Login" : "Already a member? Login" }}
+      </button>
+    </div>
+    @if (isRegisterView()) {
+    <h2>Register</h2>
+    <div>
+      <label for="email">E-mail address *</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Your Email"
+      />
+    </div>
+    <div>
+      <label for="password">Password *</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Your Password"
+      />
+    </div>
+    }
+    <div>
+      <button
+        appPrimaryButton
+        type="button"
+        (click)="onRegister()"
+        [class.secondary]="!isRegisterView()"
+      >
+        {{ isRegisterView() ? "Register" : "New customer? Start here" }}
+      </button>
+    </div>
+  </form>
+  <div class="links">
+    <p>Imprint</p>
+    <p>Privacy policy</p>
+  </div>
+</main>

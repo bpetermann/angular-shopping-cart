@@ -3,7 +3,6 @@
 @use "sass:color";
 
 :host {
-  all: unset;
   @include flex-center;
   padding: theme.$gap-size-lg;
   background-color: theme.$text-dark;
@@ -19,9 +18,7 @@
     font-size: theme.$gap-size-xl;
   }
 
-  &:hover,
-  &:focus,
-  &:focus-visible {
+  &:hover {
     background-color: color.adjust(theme.$text-dark, $lightness: 60%);
     color: theme.$text-dark;
     border: 1px solid theme.$text-dark;
