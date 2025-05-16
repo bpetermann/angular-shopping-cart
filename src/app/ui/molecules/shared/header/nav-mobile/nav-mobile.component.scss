@@ -55,31 +55,31 @@ ul {
 
   li {
     button {
-      all: unset;
+      font-size: theme.$font-size-md;
       padding: 6px;
       background-color: theme.$text-light;
-      padding-left: theme.$gap-size-md;
-      padding-right: theme.$gap-size-md;
+      padding-left: theme.$gap-size-3xl;
+      padding-right: theme.$gap-size-3xl;
       text-transform: capitalize;
-      border-right: 1px solid;
-      border-top: 1px solid;
+      border: 1px solid;
+      border-left: none;
       border-color: theme.$border;
       color: theme.$border;
       cursor: pointer;
-      font-weight: 500;
       min-width: 64px;
       text-align: center;
       color: theme.$text-dark;
 
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: color.adjust(theme.$text-dark, $lightness: 90%);
+        border-color: color.adjust(theme.$text-dark, $lightness: 90%);
       }
     }
 
     .active {
       color: theme.$text-light;
       background-color: theme.$text-dark;
+      border-color: theme.$text-dark;
       pointer-events: none;
     }
   }
