@@ -1,9 +1,9 @@
 import { Category } from './category.model';
 
 export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: Category;
+  readonly id: string;
+  readonly name: string;
+  readonly description: string;
+  readonly price: number;
+  readonly category: Category;
 }
