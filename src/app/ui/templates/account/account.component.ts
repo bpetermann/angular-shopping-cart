@@ -1,26 +1,20 @@
 import { Component, computed, signal } from '@angular/core';
 import { PrimaryButtonComponent } from '@atoms/primary-button/primary-button.component';
+import { SigninComponent } from '@organisms/account/signin/signin.component';
+import { SignupComponent } from '@organisms/account/signup/signup.component';
 
 @Component({
   selector: 'app-account',
-  imports: [PrimaryButtonComponent],
+  imports: [PrimaryButtonComponent, SigninComponent, SignupComponent],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
 })
 export class AccountComponent {
-  view = signal<'login' | 'register'>('login');
+  isLoginView = signal<boolean>(true);
 
-  isLoginView = computed(() => this.view() === 'login');
+  isRegisterView = computed(() => this.isLoginView() === false);
 
-  isRegisterView = computed(() => this.view() === 'register');
-
-  onRegister() {
-    if (this.isRegisterView()) console.log('Register Attempt');
-    else this.view.set('register');
-  }
-
-  onLogin() {
-    if (this.isLoginView()) console.log('Login Attempt');
-    else this.view.set('login');
+  onViewSwitch() {
+    this.isLoginView.update((prev) => !prev);
   }
 }

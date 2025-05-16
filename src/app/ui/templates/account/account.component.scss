@@ -14,11 +14,6 @@
     max-width: theme.$screen-sm-min;
     padding: theme.$gap-size-3xl theme.$gap-size-md;
 
-    h2 {
-      padding-top: theme.$gap-size-3xl;
-      padding-bottom: theme.$gap-size-3xl;
-    }
-
     div {
       @include flex-column;
       align-items: flex-start;
@@ -26,52 +21,18 @@
       padding-bottom: theme.$gap-size-3xl;
     }
 
-    form {
-      width: 100%;
-
-      label {
-        border: 1px solid theme.$text-dark;
-        border-bottom: none;
-        padding: theme.$gap-size-xs theme.$gap-size-md;
-        font-size: theme.$font-size-xs;
-      }
-
-      input {
-        width: 100%;
-        font-size: theme.$gap-size-xl;
-        padding: theme.$gap-size-lg;
-        border: 1px solid theme.$text-dark;
-        outline: none;
-
-        &:hover,
-        &:focus {
-          outline: 1.6px solid theme.$text-dark;
-          transition: 0.3s outline ease-in-out;
-        }
-
-        &.invalid {
-          border-color: theme.$error-color !important;
-
-          &:hover,
-          &:focus {
-            outline: none;
-          }
-        }
-      }
-    }
-
-    .secondary {
-      border: none;
-      background-color: transparent;
-      color: #6328e0;
-      text-decoration: underline;
-    }
-
     .links {
       flex-direction: row;
       justify-content: space-evenly;
       font-size: theme.$font-size-xs;
       color: #6328e0;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      color: #6328e0;
+      text-decoration: underline;
     }
   }
 }
