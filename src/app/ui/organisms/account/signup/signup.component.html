@@ -1,25 +1,38 @@
 <h2>Register</h2>
-<form action="">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
-    <label for="email">E-mail address *</label>
+    <label for="email" [class.invalid]="emailIsInvalid">E-mail address*</label>
     <input
+      [class.invalid]="emailIsInvalid"
       id="email"
       type="email"
       formControlName="email"
       placeholder="Your Email"
+      (keydown)="resetEmailError()"
     />
+    @if(emailIsInvalid){
+    <p class="error">Please enter a valid email adress</p>
+    }
   </div>
   <div>
-    <label for="password">Password *</label>
+    <label for="password" [class.invalid]="passwordIsInvalid"
+      >Password (at least 8 characters)*</label
+    >
     <input
+      [class.invalid]="passwordIsInvalid"
       id="password"
       type="password"
       formControlName="password"
       placeholder="Your Password"
+      (keydown)="resetPasswordError()"
     />
+    @if(passwordIsInvalid){
+    <p class="error">
+      Please enter a valid password with at least 8 characters
+    </p>
+    }
   </div>
-
   <div>
-    <button appPrimaryButton type="button">Register</button>
+    <button appPrimaryButton>Register</button>
   </div>
 </form>

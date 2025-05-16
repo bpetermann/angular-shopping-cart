@@ -53,7 +53,6 @@ export class SigninComponent {
       return;
     }
 
-    console.log(email.value);
-    console.log(password.value);
+    console.log('Login: ', email.value, password.value);
   }
 }
