@@ -1,0 +1,41 @@
+@use "abstracts/theme";
+@use "abstracts/mixins";
+
+.account-label {
+  border: 1px solid theme.$text-dark;
+  border-bottom: none;
+  padding: theme.$gap-size-xs theme.$gap-size-md;
+  font-size: theme.$font-size-xs;
+
+  &.invalid {
+    border-color: theme.$error-color !important;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.account-input {
+  width: 100%;
+  font-size: theme.$gap-size-xl;
+  padding: theme.$gap-size-lg;
+  border: 1px solid theme.$text-dark;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    outline: 1.6px solid theme.$text-dark;
+    transition: 0.3s outline ease-in-out;
+  }
+
+  &.invalid {
+    border-color: theme.$error-color !important;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+}

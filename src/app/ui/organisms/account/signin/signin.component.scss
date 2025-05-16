@@ -1,6 +1,6 @@
 @use "abstracts/mixins" as *;
+@use "components/form" as *;
 @use "abstracts/theme";
-@use "sass:color";
 
 :host {
   h2 {
@@ -19,32 +19,19 @@
     width: 100%;
 
     label {
-      border: 1px solid theme.$text-dark;
-      border-bottom: none;
-      padding: theme.$gap-size-xs theme.$gap-size-md;
-      font-size: theme.$font-size-xs;
+      @extend .account-label;
     }
 
     input {
-      width: 100%;
-      font-size: theme.$gap-size-xl;
-      padding: theme.$gap-size-lg;
-      border: 1px solid theme.$text-dark;
-      outline: none;
+      @extend .account-input;
+    }
 
-      &:hover,
-      &:focus {
-        outline: 1.6px solid theme.$text-dark;
-        transition: 0.3s outline ease-in-out;
-      }
+    p {
+      font-weight: 600;
+      padding-top: theme.$gap-size-lg;
 
-      &.invalid {
-        border-color: theme.$error-color !important;
-
-        &:hover,
-        &:focus {
-          outline: none;
-        }
+      &.error {
+        color: theme.$error-color;
       }
     }
   }

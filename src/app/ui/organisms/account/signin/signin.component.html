@@ -1,25 +1,36 @@
 <h2>Login</h2>
-<form action="">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
-    <label for="email">E-mail address</label>
+    <label for="email" [class.invalid]="emailIsInvalid">E-mail address</label>
     <input
+      [class.invalid]="emailIsInvalid"
       id="email"
       type="email"
       formControlName="email"
       placeholder="Your Email"
+      (keydown)="resetEmailError()"
     />
+    @if(emailIsInvalid){
+    <p class="error">Please enter your email adress</p>
+    }
   </div>
+
   <div>
-    <label for="password">Password</label>
+    <label for="password" [class.invalid]="passwordInvalid()">Password</label>
     <input
+      [class.invalid]="passwordInvalid()"
       id="password"
       type="password"
       formControlName="password"
       placeholder="Your Password"
+      (keydown)="resetPasswordError()"
     />
+    @if(passwordInvalid()){
+    <p class="error">Please enter your password</p>
+    }
   </div>
 
   <div>
-    <button appPrimaryButton type="button">Login</button>
+    <button appPrimaryButton>Login</button>
   </div>
 </form>

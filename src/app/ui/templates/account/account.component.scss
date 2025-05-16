@@ -12,7 +12,11 @@
   main {
     width: 100%;
     max-width: theme.$screen-sm-min;
-    padding: theme.$gap-size-3xl theme.$gap-size-md;
+    padding: 0px theme.$gap-size-md;
+
+    @include md {
+      padding: theme.$gap-size-3xl theme.$gap-size-md;
+    }
 
     div {
       @include flex-column;
