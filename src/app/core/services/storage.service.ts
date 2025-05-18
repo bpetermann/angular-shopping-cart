@@ -19,6 +19,12 @@ export class StorageService {
       localStorage.setItem(key, value);
     }
   }
+
+  removeItem(key: string): void {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(key);
+    }
+  }
 }
 
 export interface OnStorageInit {
