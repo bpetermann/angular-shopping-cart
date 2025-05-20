@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { PrimaryButtonComponent } from '@atoms/primary-button/primary-button.component';
+import { AccountService } from '@core/services/account.service';
 
 @Component({
   selector: 'app-signup',
@@ -23,6 +24,9 @@ export class SignupComponent {
       validators: [Validators.required, Validators.minLength(8)],
     }),
   });
+
+  acccountService = inject(AccountService);
+  error = signal<string | undefined>(undefined);
 
   get emailIsInvalid() {
     const { email } = this.form.controls;
@@ -52,6 +56,13 @@ export class SignupComponent {
       return;
     }
 
-    console.log('Register: ', email.value, password.value);
+    try {
+      this.acccountService.register({
+        email: email.value,
+        password: password.value,
+      });
+    } catch (e) {
+      this.error.set((e as Error).message);
+    }
   }
 }

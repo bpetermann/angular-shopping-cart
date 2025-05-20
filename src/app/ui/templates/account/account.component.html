@@ -1,14 +1,13 @@
 <main>
-  @if (isLoginView()) { <app-signin />} @else { <app-signup />}
+  @if(user()){<app-welcome [user]="user()!" (logout)="logout()" />} @else {
+  @if(isLoginView()) { <app-signin />} @else{<app-signup />}
+
   <div>
     <button appPrimaryButton (click)="onViewSwitch()">
-      {{
-        isRegisterView()
-          ? "Already a member? Login"
-          : "New customer? Start here"
-      }}
+      {{ switchText() }}
     </button>
   </div>
+  }
 
   <div class="links">
     <p>Imprint</p>

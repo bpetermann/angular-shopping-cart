@@ -33,4 +33,9 @@
   <div>
     <button appPrimaryButton>Login</button>
   </div>
+  @if(error()){
+  <p class="error">
+    {{ error() }}
+  </p>
+  }
 </form>

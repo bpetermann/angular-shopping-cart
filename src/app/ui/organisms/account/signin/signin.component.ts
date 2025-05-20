@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { PrimaryButtonComponent } from '@atoms/primary-button/primary-button.component';
+import { AccountService } from '@core/services/account.service';
 
 @Component({
   selector: 'app-signin',
@@ -24,6 +25,8 @@ export class SigninComponent {
     }),
   });
 
+  acccountService = inject(AccountService);
+  error = signal<string | undefined>(undefined);
   passwordInvalid = signal<boolean>(false);
 
   get emailIsInvalid() {
@@ -53,6 +56,13 @@ export class SigninComponent {
       return;
     }
 
-    console.log('Login: ', email.value, password.value);
+    try {
+      this.acccountService.login({
+        email: email.value,
+        password: password.value,
+      });
+    } catch (e) {
+      this.error.set((e as Error).message);
+    }
   }
 }

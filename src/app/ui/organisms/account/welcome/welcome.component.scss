@@ -1,0 +1,11 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/theme";
+
+:host {
+  div {
+    @include flex-column;
+    align-items: flex-start;
+    padding-top: theme.$gap-size-3xl;
+    padding-bottom: theme.$gap-size-3xl;
+  }
+}

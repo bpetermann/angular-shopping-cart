@@ -35,4 +35,9 @@
   <div>
     <button appPrimaryButton>Register</button>
   </div>
+  @if(error()){
+  <p class="error">
+    {{ error() }}
+  </p>
+  }
 </form>
