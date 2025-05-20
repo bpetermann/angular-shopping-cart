@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AccountService } from '@core/services/account.service';
 import { CartService } from './core/services/cart.service';
 import { FavoriteService } from './core/services/favorite.service';
 import { CartComponent } from './ui/organisms/shared/cart/cart.component';
@@ -23,10 +24,12 @@ export class AppComponent {
   title = 'angular-shopping-cart';
 
   readonly cartService = inject(CartService);
+  readonly accountService = inject(AccountService);
   readonly favoritesService = inject(FavoriteService);
 
   ngOnInit() {
     this.cartService.storageInit();
+    this.accountService.storageInit();
     this.favoritesService.storageInit();
   }
 }
